@@ -1,0 +1,332 @@
+[
+    {
+        "key": "group_schema_org_company",
+        "title": "Микроразметка Schema.org - Общие данные компании",
+        "fields": [
+            {
+                "key": "field_schema_company_name",
+                "label": "Название компании",
+                "name": "schema_company_name",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Официальное название компании для микроразметки (по умолчанию: Дядя Мебель)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Дядя Мебель",
+                "placeholder": "Дядя Мебель",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "allow_in_bindings": 0
+            },
+            {
+                "key": "field_schema_company_logo",
+                "label": "URL логотипа компании",
+                "name": "schema_company_logo",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Относительный путь к логотипу (по умолчанию: /assets/img/logotype.svg)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "/assets/img/logotype.svg",
+                "placeholder": "/assets/img/logotype.svg",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "allow_in_bindings": 0
+            },
+            {
+                "key": "field_schema_company_description",
+                "label": "Описание компании",
+                "name": "schema_company_description",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "Краткое описание деятельности компании для поисковых систем",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "Профессиональная перетяжка и ремонт мебели в России. Реставрация мягкой и корпусной мебели, замена обивки, ремонт каркаса. Опытные мастера, качественные материалы, доступные цены.",
+                "placeholder": "Описание услуг компании",
+                "maxlength": "",
+                "rows": 4,
+                "new_lines": "",
+                "allow_in_bindings": 0
+            },
+            {
+                "key": "field_schema_price_range",
+                "label": "Ценовой диапазон",
+                "name": "schema_price_range",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "Ценовой диапазон услуг (например: от 1500₽, $$, $$$)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "50",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "от 1500₽",
+                "placeholder": "от 1500₽",
+                "prepend": "",
+                "append": "",
+                "maxlength": "",
+                "allow_in_bindings": 0
+            },
+            {
+                "key": "field_schema_rating_value",
+                "label": "Рейтинг (от 1 до 5)",
+                "name": "schema_rating_value",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "Средний рейтинг компании (например: 5.0, 4.8, 4.5)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 5,
+                "placeholder": "5.0",
+                "prepend": "",
+                "append": "★",
+                "min": 1,
+                "max": 5,
+                "step": 0.1,
+                "allow_in_bindings": 0
+            },
+            {
+                "key": "field_schema_rating_count",
+                "label": "Количество отзывов",
+                "name": "schema_rating_count",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "Общее количество отзывов (например: 45, 100, 250)",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 45,
+                "placeholder": "45",
+                "prepend": "",
+                "append": "отзывов",
+                "min": 1,
+                "max": "",
+                "step": 1,
+                "allow_in_bindings": 0
+            },
+            {
+                "key": "field_schema_enable_rating",
+                "label": "Показывать рейтинг",
+                "name": "schema_enable_rating",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "Включить отображение рейтинга в микроразметке",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "33",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "Да, показывать рейтинг",
+                "default_value": 1,
+                "ui": 1,
+                "ui_on_text": "Да",
+                "ui_off_text": "Нет",
+                "allow_in_bindings": 0
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "templates/page-contacts.php"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Общие данные компании для микроразметки Schema.org"
+    },
+    {
+        "key": "group_schema_org_locations",
+        "title": "Микроразметка Schema.org - Данные локаций",
+        "fields": [
+            {
+                "key": "field_schema_locations_repeater",
+                "label": "Дополнительные данные для адресов",
+                "name": "schema_locations_data",
+                "aria-label": "",
+                "type": "repeater",
+                "instructions": "Добавьте geo-координаты и часы работы для каждого адреса из основного списка. Количество элементов должно соответствовать количеству адресов.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "field_schema_location_city",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "Добавить данные локации",
+                "rows_per_page": 20,
+                "sub_fields": [
+                    {
+                        "key": "field_schema_location_city",
+                        "label": "Город (для справки)",
+                        "name": "city_reference",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Укажите город для удобства идентификации (должен совпадать с городом в основном списке адресов)",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "Симферополь",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "parent_repeater": "field_schema_locations_repeater"
+                    },
+                    {
+                        "key": "field_schema_latitude",
+                        "label": "Широта (Latitude)",
+                        "name": "latitude",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Координата широты (например: 44.952117). Можно получить на картах Google или Яндекс",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "44.952117",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "parent_repeater": "field_schema_locations_repeater"
+                    },
+                    {
+                        "key": "field_schema_longitude",
+                        "label": "Долгота (Longitude)",
+                        "name": "longitude",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Координата долготы (например: 34.102417). Можно получить на картах Google или Яндекс",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "50",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "34.102417",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "parent_repeater": "field_schema_locations_repeater"
+                    },
+                    {
+                        "key": "field_schema_opening_hours",
+                        "label": "Часы работы (формат Schema.org)",
+                        "name": "opening_hours",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Режим работы в формате Schema.org (Mo-Fr 09:00-18:00, Sa-Su 10:00-16:00). Можно указать несколько через запятую",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "Mo-Fr 09:00-18:00",
+                        "placeholder": "Mo-Fr 09:00-18:00, Sa 10:00-16:00",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "parent_repeater": "field_schema_locations_repeater"
+                    },
+                    {
+                        "key": "field_schema_location_url",
+                        "label": "URL страницы локации (необязательно)",
+                        "name": "location_url",
+                        "aria-label": "",
+                        "type": "text",
+                        "instructions": "Если у локации есть отдельная страницу, укажите URL. Оставьте пустым, чтобы использовать общую страницу контактов",
+                        "required": 0,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "/contacts/simferopol/",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": "",
+                        "allow_in_bindings": 0,
+                        "parent_repeater": "field_schema_locations_repeater"
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "page_template",
+                    "operator": "==",
+                    "value": "templates/page-contacts.php"
+                }
+            ]
+        ],
+        "menu_order": 1,
+        "position": "normal",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": true,
+        "description": "Geo-координаты и часы работы для микроразметки Schema.org каждой локации"
+    }
+]

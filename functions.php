@@ -229,6 +229,32 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
-	require get_template_directory() . '/inc/jetpack.php';
+	require get_template_directory() . '/inc/jetpack.php'; 
+}  
+
+/**
+ * Исправление микроразметки для валидаторов Яндекс и Google
+ */
+
+// Удаляем устаревшее поле query-input из SearchAction (для Яндекс валидатора)
+function mebel_fix_search_action_markup() {
+    // Отключаем стандартную SearchAction разметку WordPress если она есть
+    remove_action('wp_head', 'wp_sitewide_search_action', 1);
+}
+add_action('init', 'mebel_fix_search_action_markup');
+
+// Фильтруем вывод HTML для удаления query-input
+function mebel_remove_query_input_from_html($buffer) {
+    // Удаляем query-input из SearchAction разметки
+    $buffer = preg_replace('/<meta\s+itemprop=["\']query-input["\'][^>]*>/i', '', $buffer);
+    $buffer = preg_replace('/<input\s+itemprop=["\']query-input["\'][^>]*>/i', '', $buffer);
+    return $buffer;
+}
+
+// Применяем фильтр только для фронтенда
+if (!is_admin()) {
+    add_action('template_redirect', function() {
+        ob_start('mebel_remove_query_input_from_html');
+    });
 }
 
