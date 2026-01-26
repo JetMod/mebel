@@ -20,59 +20,57 @@
             top: 100%;
             left: 0;
             background: #fff;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
             z-index: 10000;
-            min-width: 300px;
-            padding: 20px 0;
-            margin-top: 0;
-            padding-top: 10px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s, visibility 0.2s;
-        }
-
-        /* Create invisible bridge at the top of dropdown menu to prevent gap */
-        .services-dropdown-menu::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: 0;
-            width: 100%;
-            height: 10px;
-            background: transparent;
-        }
-
-        .services-dropdown-menu.active {
-            display: block;
-            opacity: 1;
-            visibility: visible;
+            min-width: 320px;
+            padding: 15px 0;
+            border-radius: 4px;
         }
 
         .services-dropdown-content {
             display: flex;
             flex-direction: column;
+            gap: 2px;
+            position: relative;
+            z-index: 10000;
+        }
+
+        /* Show dropdown on hover - simple like WordPress default */
+        @media (min-width: 1025px) {
+            .menu-item-has-services:hover > .services-dropdown-menu {
+                display: block;
+            }
         }
 
         .services-dropdown-item {
             position: relative;
+            margin-bottom: 2px;
         }
 
+        .services-dropdown-item:last-child {
+            margin-bottom: 0;
+        }
 
         .services-main-link {
-            display: block;
-            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 25px;
             color: #333;
             text-decoration: none;
             font-size: 15px;
             font-weight: 500;
-            transition: background-color 0.3s, color 0.3s;
             border-left: 3px solid transparent;
+            position: relative;
         }
 
-        .services-main-link:hover {
-            background-color: #f5f5f5;
-            color: #d4af37;
-            border-left-color: #d4af37;
+        /* Hover effect only on desktop */
+        @media (min-width: 1025px) {
+            .services-main-link:hover {
+                background: #f5f5f5;
+                color: #d4af37;
+                border-left-color: #d4af37;
+            }
         }
 
         .services-submenu {
@@ -81,56 +79,50 @@
             left: 100%;
             top: 0;
             background: #fff;
-            box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.15);
-            min-width: 280px;
+            box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
+            min-width: 300px;
             padding: 15px 0;
-            margin-left: 10px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            z-index: 10001;
+            border-radius: 4px;
         }
 
         .services-dropdown-item.has-submenu {
             position: relative;
         }
 
-        .services-dropdown-item.has-submenu:hover .services-submenu {
-            display: block;
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Prevent submenu from closing when moving mouse to it */
-        .services-dropdown-item.has-submenu .services-main-link {
-            position: relative;
-        }
-
-        /* Add a small gap between main menu and submenu for easier navigation */
-        .services-dropdown-item.has-submenu::after {
-            content: '';
-            position: absolute;
-            right: -5px;
-            top: 0;
-            width: 10px;
-            height: 100%;
-            z-index: 10000;
+        /* Show submenu on hover - desktop only */
+        @media (min-width: 1025px) {
+            .services-dropdown-item.has-submenu:hover .services-submenu {
+                display: block;
+            }
         }
 
         .services-submenu a {
             display: block;
-            padding: 10px 25px;
-            color: #666;
+            padding: 12px 25px;
+            color: #555;
             text-decoration: none;
             font-size: 14px;
-            transition: background-color 0.3s, color 0.3s;
+            font-weight: 400;
             border-left: 3px solid transparent;
         }
 
-        .services-submenu a:hover {
-            background-color: #f5f5f5;
-            color: #d4af37;
-            border-left-color: #d4af37;
+        /* Hover effect only on desktop */
+        @media (min-width: 1025px) {
+            .services-submenu a:hover {
+                background: #f5f5f5;
+                color: #d4af37;
+                border-left-color: #d4af37;
+            }
+        }
+
+        /* Menu arrow icon for submenu items */
+        .menu-arrow-icon {
+            display: inline-block;
+            margin-left: 10px;
+            font-size: 18px;
+            color: #bbb;
+            font-weight: 300;
+            line-height: 1;
         }
 
         /* Menu item with dropdown */
@@ -138,36 +130,172 @@
             position: relative;
         }
 
-        .menu-links li.menu-item-has-services:hover .services-dropdown-menu,
-        .services-dropdown-menu:hover,
-        .services-dropdown-menu.active {
-            display: block;
-            opacity: 1;
-            visibility: visible;
-        }
+        /* Icon for main menu item "УСЛУГИ" */
+        @media (min-width: 1025px) {
+            .menu-links li.menu-item-has-services > a {
+                position: relative;
+                padding-right: 18px;
+                cursor: default;
+            }
+
+            .menu-links li.menu-item-has-services > a::after {
+                content: '';
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 0;
+                height: 0;
+                border-left: 4px solid transparent;
+                border-right: 4px solid transparent;
+                border-top: 5px solid #666;
+            }
+
+            .menu-links li.menu-item-has-services:hover > a {
+                color: #d4af37;
+            }
+
+            .menu-links li.menu-item-has-services:hover > a::after {
+                border-top-color: #d4af37;
+            }
+        } 
 
         @media (max-width: 1024px) {
-            .services-dropdown-menu {
-                position: static;
-                box-shadow: none;
-                margin-top: 0;
-                padding: 10px 0;
+            /* Hide desktop dropdown on mobile */
+            #services-dropdown {
                 display: none !important;
             }
 
-            .services-submenu {
-                position: static;
-                box-shadow: none;
-                margin-left: 0;
-                padding-left: 20px;
+            /* Disable all hover and active effects on mobile */
+            .services-dropdown-menu *:hover,
+            .services-dropdown-menu *:active,
+            .services-main-link:hover,
+            .services-main-link:active,
+            .services-submenu a:hover,
+            .services-submenu a:active,
+            .mobile-menu .services-main-link:hover,
+            .mobile-menu .services-main-link:active,
+            .mobile-menu .services-submenu a:hover,
+            .mobile-menu .services-submenu a:active,
+            .mobile-menu .services-dropdown-item:hover,
+            .mobile-menu .services-dropdown-item:active {
+                background: none !important;
+                color: inherit !important;
+                border-left-color: transparent !important;
+                opacity: 1 !important;
+                transform: none !important;
             }
 
-            /* Show dropdown in mobile menu */
-            .mobile-menu .services-dropdown-menu {
-                display: block !important;
+            /* Disable hover on touch devices */
+            @media (hover: none) and (pointer: coarse) {
+                .services-dropdown-menu *:hover,
+                .services-dropdown-menu *:active {
+                    background: none !important;
+                    color: inherit !important;
+                }
+            }
+            
+            /* Remove iOS tap effects */
+            .mobile-menu .services-dropdown-menu,
+            .mobile-menu .services-dropdown-item,
+            .mobile-menu .services-main-link,
+            .mobile-menu .services-submenu,
+            .mobile-menu .services-submenu a,
+            .mobile-menu .menu-arrow-icon {
+                -webkit-tap-highlight-color: transparent !important;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                user-select: none;
+                transition: none !important;
+            }
+            
+            /* Specifically disable hover effects for services items */
+            .mobile-menu .services-main-link,
+            .mobile-menu .services-submenu a {
+                pointer-events: auto;
+            }
+            
+            .mobile-menu .services-main-link:hover,
+            .mobile-menu .services-main-link:focus,
+            .mobile-menu .services-main-link:active {
+                background: transparent !important;
+                color: #fff !important;
+            }
+            
+            .mobile-menu .services-submenu a:hover,
+            .mobile-menu .services-submenu a:focus,
+            .mobile-menu .services-submenu a:active {
+                background: transparent !important;
+                color: rgba(255, 255, 255, 0.85) !important;
+            }
+
+            /* Mobile menu item "УСЛУГИ" styling */
+            .mobile-menu .menu-item-has-services-mobile > a {
+                position: relative;
+                padding-right: 30px;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .mobile-menu .menu-item-has-services-mobile > a::after {
+                content: '▼';
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 10px;
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .mobile-menu .menu-item-has-services-mobile.active > a::after {
+                transform: translateY(-50%) rotate(180deg);
+            }
+
+            .mobile-menu .services-dropdown-menu.mobile-services {
+                display: none;
                 position: static;
-                opacity: 1;
-                visibility: visible;
+                padding: 10px 0 10px 20px;
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .mobile-menu .services-dropdown-item {
+                margin-bottom: 0;
+            }
+
+            .mobile-menu .services-main-link {
+                padding: 12px 15px;
+                font-size: 14px;
+                color: #fff;
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .mobile-menu .services-dropdown-item.has-submenu.active > .services-main-link {
+                color: #d4af37;
+            }
+
+            .mobile-menu .services-submenu {
+                display: none;
+                position: static;
+                padding: 5px 0 5px 20px;
+                background: rgba(0, 0, 0, 0.2);
+                box-shadow: none;
+                min-width: auto;
+            }
+
+            .mobile-menu .services-submenu a {
+                display: block;
+                padding: 10px 15px;
+                font-size: 13px;
+                color: rgba(255, 255, 255, 0.85);
+                -webkit-tap-highlight-color: transparent;
+            }
+
+            .mobile-menu .menu-arrow-icon {
+                color: rgba(255, 255, 255, 0.5);
+            }
+
+            .mobile-menu .services-dropdown-item.has-submenu.active .menu-arrow-icon {
+                transform: rotate(90deg);
+                color: #d4af37;
             }
         }
     </style>
@@ -175,11 +303,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
 	<?php wp_head(); ?>
-</head>
-
-<body <?php body_class(); ?>>
-<?php wp_body_open(); ?>
-
+</head>  
+ 
+<body <?php body_class(); ?>> 
+<?php wp_body_open(); ?> 
+ 
 	<div class="wrapper">
         <header class="header">
             <div class="header-top content">
@@ -213,13 +341,13 @@
                             ) ); ?>
                         </div>
                         <p class="time-work"><?php if (get_field('time_header', 'option')) the_field('time_header', 'option'); ?></p>
-                    </div>
+                    </div>  
                     
                     <!-- Services Dropdown Menu -->
                     <div class="services-dropdown-menu" id="services-dropdown">
                         <div class="services-dropdown-content">
                             <div class="services-dropdown-item has-submenu">
-                                <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>" class="services-main-link">ПЕРЕТЯЖКА МЯГКОЙ МЕБЕЛИ</a>
+                                <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>" class="services-main-link">ПЕРЕТЯЖКА МЯГКОЙ МЕБЕЛИ<span class="menu-arrow-icon">›</span></a>
                                 <div class="services-submenu">
                                     <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#divany">Перетяжка диванов</a>
                                     <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#krovati">Перетяжка кровати</a>
@@ -244,7 +372,7 @@
                                 <a href="<?php echo $page_restavr ? get_permalink($page_restavr->ID) : get_permalink(ID_PAGE_RESTAVRAT); ?>" class="services-main-link">РЕСТАВРАЦИЯ МЕБЕЛИ</a>
                             </div>
                             <div class="services-dropdown-item has-submenu">
-                                <a href="<?php echo get_permalink(ID_REMONT); ?>" class="services-main-link">РЕМОНТ МЯГКОЙ МЕБЕЛИ</a>
+                                <a href="<?php echo get_permalink(ID_REMONT); ?>" class="services-main-link">РЕМОНТ МЯГКОЙ МЕБЕЛИ<span class="menu-arrow-icon">›</span></a>
                                 <div class="services-submenu">
                                     <a href="<?php echo get_permalink(ID_REMONT); ?>#divany">Ремонт диванов</a>
                                     <a href="<?php echo get_permalink(ID_REMONT); ?>#krovati">Ремонт кровати</a>
@@ -260,7 +388,7 @@
                             </div>
                             <div class="services-dropdown-item">
                                 <a href="<?php echo $page_order ? get_permalink($page_order->ID) : get_permalink(ID_PAGE_MADE); ?>" class="services-main-link">ИЗГОТОВЛЕНИЕ МЕБЕЛИ ПОД ЗАКАЗ</a>
-                            </div>
+                            </div> 
                         </div>
                     </div>  
                     <div class="phone-block">
@@ -276,8 +404,58 @@
                                 <?php wp_nav_menu( array(
                                     'theme_location' => 'menu_header',
                                     'container' => false,
-                                ) ); ?>
-                            </div> 
+                                ) ); ?> 
+                            </div>
+                            
+                            <!-- Mobile Services Dropdown Menu -->
+                            <div class="services-dropdown-menu mobile-services" id="services-dropdown-mobile">
+                                <div class="services-dropdown-content">
+                                    <div class="services-dropdown-item has-submenu">
+                                        <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>" class="services-main-link">ПЕРЕТЯЖКА МЯГКОЙ МЕБЕЛИ<span class="menu-arrow-icon">›</span></a>
+                                        <div class="services-submenu">
+                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#divany">Перетяжка диванов</a>
+                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#krovati">Перетяжка кровати</a>
+                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#kresla">Перетяжка кресел</a>
+                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#stulya">Перетяжка стульев</a>
+                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#pufy">Перетяжка пуфа и банкетки</a>
+                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#kozha">Перетяжка кожаной мебели</a>
+                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#ofis">Перетяжка офисной мебели</a>
+                                        </div>
+                                    </div>
+                                    <?php 
+                                    $page_caret = get_page_by_path('karetnaya-styazhka');
+                                    $page_restavr = get_page_by_path('restavraciya-mebeli');
+                                    $page_destroy = get_page_by_path('razborka-i-utilizaciya-mebeli');
+                                    $page_movement = get_page_by_path('perevozka-mebeli');
+                                    $page_order = get_page_by_path('izgotovlenie-mebeli-pod-zakaz');
+                                    ?>
+                                    <div class="services-dropdown-item">
+                                        <a href="<?php echo $page_caret ? get_permalink($page_caret->ID) : '#'; ?>" class="services-main-link">КАРЕТНАЯ СТЯЖКА</a>
+                                    </div>
+                                    <div class="services-dropdown-item">
+                                        <a href="<?php echo $page_restavr ? get_permalink($page_restavr->ID) : get_permalink(ID_PAGE_RESTAVRAT); ?>" class="services-main-link">РЕСТАВРАЦИЯ МЕБЕЛИ</a>
+                                    </div>
+                                    <div class="services-dropdown-item has-submenu">
+                                        <a href="<?php echo get_permalink(ID_REMONT); ?>" class="services-main-link">РЕМОНТ МЯГКОЙ МЕБЕЛИ<span class="menu-arrow-icon">›</span></a>
+                                        <div class="services-submenu">
+                                            <a href="<?php echo get_permalink(ID_REMONT); ?>#divany">Ремонт диванов</a>
+                                            <a href="<?php echo get_permalink(ID_REMONT); ?>#krovati">Ремонт кровати</a>
+                                            <a href="<?php echo get_permalink(ID_REMONT); ?>#kresla">Ремонт кресел</a>
+                                            <a href="<?php echo get_permalink(ID_REMONT); ?>#stulya">Ремонт стульев</a>
+                                        </div>
+                                    </div>
+                                    <div class="services-dropdown-item">
+                                        <a href="<?php echo $page_destroy ? get_permalink($page_destroy->ID) : get_permalink(ID_PAGE_DESTROY); ?>" class="services-main-link">РАЗБОРКА И УТИЛИЗАЦИЯ МЕБЕЛИ</a>
+                                    </div>
+                                    <div class="services-dropdown-item">
+                                        <a href="<?php echo $page_movement ? get_permalink($page_movement->ID) : get_permalink(ID_PAGE_MOVEMENT); ?>" class="services-main-link">ПЕРЕВОЗКА МЕБЕЛИ</a>
+                                    </div>
+                                    <div class="services-dropdown-item">
+                                        <a href="<?php echo $page_order ? get_permalink($page_order->ID) : get_permalink(ID_PAGE_MADE); ?>" class="services-main-link">ИЗГОТОВЛЕНИЕ МЕБЕЛИ ПОД ЗАКАЗ</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             <div class="cities-dropdown">
                                 <div class="city-current">
                                     <span class="active"><?php the_field('current_city', 'option'); ?></span>
@@ -307,6 +485,116 @@
                 </div>
             </div>
         </header>
+
+        <script>
+            jQuery(function($) {
+                // Simple initialization - find and mark services menu items
+                function initServicesMenu() {
+                    // Desktop menu
+                    $('.menu-center .menu-links > ul > li').each(function() {
+                        var $menuItem = $(this);
+                        var $link = $menuItem.find('> a');
+                        var linkText = $link.text().toUpperCase().trim();
+                        
+                        if (linkText.indexOf('УСЛУГИ') !== -1) {
+                            $menuItem.addClass('menu-item-has-services');
+                            var $dropdown = $('#services-dropdown');
+                            if ($dropdown.length && $menuItem.find('#services-dropdown').length === 0) {
+                                $menuItem.append($dropdown);
+                            }
+                        }
+                    });
+                    
+                    // Mobile menu
+                    $('.mobile-menu .menu-links > ul > li').each(function() {
+                        var $menuItem = $(this);
+                        var $link = $menuItem.find('> a');
+                        var linkText = $link.text().toUpperCase().trim();
+                        
+                        if (linkText.indexOf('УСЛУГИ') !== -1) {
+                            $menuItem.addClass('menu-item-has-services-mobile');
+                            var $dropdown = $('#services-dropdown-mobile');
+                            if ($dropdown.length && $menuItem.find('#services-dropdown-mobile').length === 0) {
+                                $menuItem.append($dropdown);
+                            }
+                        }
+                    });
+                }
+
+                $(document).ready(function() {
+                    initServicesMenu();
+                    setTimeout(initServicesMenu, 300);
+
+                    // Mobile: Toggle main services menu
+                    $(document).on('click', '.mobile-menu .menu-item-has-services-mobile > a', function(e) {
+                        if ($(window).width() > 1024) return;
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        var $parent = $(this).parent();
+                        var $dropdown = $parent.find('#services-dropdown-mobile');   
+                        
+                        if ($dropdown.length) {
+                            $dropdown.slideToggle(200);
+                            $parent.toggleClass('active');
+                        }
+                        
+                        return false;
+                    });
+
+                    // Mobile: Toggle submenu items with has-submenu class
+                    $(document).on('click', '.mobile-menu .services-dropdown-item.has-submenu > .services-main-link', function(e) {
+                        if ($(window).width() > 1024) return;
+                        
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        var $parent = $(this).parent();
+                        var $submenu = $parent.find('> .services-submenu');
+                        
+                        if ($submenu.length) {
+                            // Close other submenus
+                            $('.mobile-menu .services-submenu').not($submenu).slideUp(200);
+                            $('.mobile-menu .services-dropdown-item').not($parent).removeClass('active');
+                            
+                            // Toggle current
+                            $submenu.slideToggle(200);
+                            $parent.toggleClass('active');
+                        }
+                        
+                        return false;
+                    });
+
+                    // Allow navigation for links inside submenu
+                    $(document).on('click', '.mobile-menu .services-submenu a', function(e) {
+                        e.stopPropagation();
+                        // Allow default behavior (navigation)
+                    });
+                });
+
+                <?php if (is_front_page()) : ?>
+                $('.menu-center .menu-links a').on('click',function(e){
+                    let url = $(this).attr('href');
+                    if (url && url.indexOf('#') != -1) {
+                        e.preventDefault();
+                        let hash = url.slice(url.indexOf('#'));
+                        $('body, html').stop().animate({scrollTop:$(hash).offset().top - 50},600);
+                    }
+                });
+
+                $('.mobile-menu .menu-links a:not(.services-main-link)').on('click',function(e){
+                    let url = $(this).attr('href');
+                    if (url && url.indexOf('#') != -1 && !$(this).closest('.services-dropdown-menu').length) {
+                        e.preventDefault();
+                        let hash = url.slice(url.indexOf('#'));
+                        $('body, html').stop().animate({scrollTop:$(hash).offset().top - 50},600);
+                        $('.mobile-menu-wrap').fadeOut(300);
+                    }
+                });
+                <?php endif; ?>
+            })
+        </script>
 
 		<?php if (is_front_page()) :?>
 
@@ -342,106 +630,7 @@
             </div>
             <?php endif; ?>
         </div>
-
-        <script>
-            jQuery(function($) {
-                // Attach services dropdown to "УСЛУГИ" menu item
-                function attachServicesDropdown() {
-                    var $menuLinks = $('.menu-center .menu-links');
-                    var $menuItems = $menuLinks.find('li');
-                    var $dropdown = $('#services-dropdown');
-                    
-                    if (!$dropdown.length) {
-                        return;
-                    }
-                    
-                    $menuItems.each(function() {
-                        var $menuItem = $(this);
-                        var $link = $menuItem.find('a');
-                        var linkText = $link.text().toUpperCase().trim();
-                        var linkHref = $link.attr('href') || '';
-                        
-                        // Check if this is the "УСЛУГИ" menu item
-                        if (linkText.indexOf('УСЛУГИ') !== -1 || 
-                            linkText.indexOf('SERVICES') !== -1 ||
-                            linkHref.indexOf('services') !== -1 ||
-                            linkHref.indexOf('uslugi') !== -1) {
-                            
-                            if (!$menuItem.hasClass('menu-item-has-services')) {
-                                $menuItem.addClass('menu-item-has-services');
-                                
-                                // Move dropdown if it's not already there
-                                if ($menuItem.find('#services-dropdown').length === 0) {
-                                    $menuItem.append($dropdown);
-                                }
-                            }
-                        }
-                    });
-                }
-
-                // Initialize on page load
-                $(document).ready(function() {
-                    attachServicesDropdown();
-                    
-                    // Re-initialize after a short delay to ensure menu is loaded
-                    setTimeout(attachServicesDropdown, 200);
-                    setTimeout(attachServicesDropdown, 500);
-
-                    // Add hover handlers with delay to prevent menu from closing immediately
-                    var hideTimeout;
-                    
-                    $(document).on('mouseenter', '.menu-item-has-services', function() {
-                        clearTimeout(hideTimeout);
-                        var $dropdown = $(this).find('#services-dropdown');
-                        $dropdown.addClass('active');
-                    });
-
-                    $(document).on('mouseleave', '.menu-item-has-services', function() {
-                        var $dropdown = $(this).find('#services-dropdown');
-                        var $item = $(this);
-                        hideTimeout = setTimeout(function() {
-                            // Check if mouse is still over dropdown or menu item
-                            if (!$dropdown.is(':hover') && !$item.is(':hover')) {
-                                $dropdown.removeClass('active');
-                            }
-                        }, 200);
-                    });
-
-                    $(document).on('mouseenter', '#services-dropdown', function() {
-                        clearTimeout(hideTimeout);
-                        $(this).addClass('active');
-                    });
-
-                    $(document).on('mouseleave', '#services-dropdown', function() {
-                        var $dropdown = $(this);
-                        hideTimeout = setTimeout(function() {
-                            $dropdown.removeClass('active');
-                        }, 200);
-                    });
-                });
-
-                $('.menu-center .menu-links a').on('click',function(e){
-                    let url = $(this).attr('href');
-                    if (url.indexOf('#') != -1) {
-                        e.preventDefault();
-                        let hash = url.slice(url.indexOf('#'));
-                        console.log(hash)
-                        $('body, html').stop().animate({scrollTop:$(hash).offset().top - 50},600);
-                    }
-                });
-
-                $('.mobile-menu .menu-links a').on('click',function(e){
-                    let url = $(this).attr('href');
-                    if (url.indexOf('#') != -1) {
-                        e.preventDefault();
-                        let hash = url.slice(url.indexOf('#'));
-                        $('body, html').stop().animate({scrollTop:$(hash).offset().top - 50},600);
-                        $('.mobile-menu-wrap').fadeOut(300);
-                    }
-                });
-            })
-        </script>
-
+  
         <?php else: ?>
  
             <div class="min-main-screen">
@@ -475,4 +664,4 @@
             </div>
         </div>
  
-<?php endif; ?>
+<?php endif; ?> 
