@@ -130,11 +130,11 @@ function mebel_widgets_init() {
 }
 add_action( 'widgets_init', 'mebel_widgets_init' );
 
-/**
+/** 
  * Enqueue scripts and styles.
  */
 function mebel_scripts() {
-	get_stylesheet_uri();
+	wp_enqueue_style('mebel-style', get_stylesheet_uri(), array('mebel-main-css'), _S_VERSION);
 	wp_enqueue_style('mebel-fancybox-css', get_template_directory_uri() . "/assets/css/jquery.fancybox.min.css");
 	wp_enqueue_style('mebel-swiper-css', get_template_directory_uri() . "/assets/css/swiper.min.css");
 	wp_enqueue_style('mebel-main-css', get_template_directory_uri() . "/assets/css/app.min.css");
@@ -143,9 +143,9 @@ function mebel_scripts() {
 	wp_enqueue_script('jquery');
 	wp_enqueue_script('mebel-main-js', get_template_directory_uri() . '/assets/js/app.min.js', array(), null, true);
 }
-add_action( 'wp_enqueue_scripts', 'mebel_scripts' );
+add_action( 'wp_enqueue_scripts', 'mebel_scripts' ); 
 
-add_filter('wpcf7_autop_or_not', '__return_false');
+add_filter('wpcf7_autop_or_not', '__return_false'); 
 
 add_filter( 'upload_mimes', 'mebel_svg_upload_allow' );
 
@@ -206,9 +206,226 @@ add_action('init', 'mebel_create_materials');
 
 
 /**
+ * Custom Menu Walker for multi-level menu support
+ */
+class Mebel_Custom_Walker extends Walker_Nav_Menu {
+	
+	// Start Level (ul)
+	function start_lvl( &$output, $depth = 0, $args = null ) {
+		$indent = str_repeat("\t", $depth);
+		
+		// First level submenu (services dropdown)
+		if ( $depth == 0 ) {
+			$output .= "\n$indent<div class=\"services-dropdown-menu\">\n";
+			$output .= "$indent\t<div class=\"services-dropdown-content\">\n";
+		}
+		// Second level submenu
+		else if ( $depth == 1 ) {
+			$output .= "\n$indent\t\t<div class=\"services-submenu\">\n";
+		}
+	}
+	
+	// End Level (ul)
+	function end_lvl( &$output, $depth = 0, $args = null ) {
+		$indent = str_repeat("\t", $depth);
+		
+		if ( $depth == 0 ) {
+			$output .= "$indent\t</div>\n"; // Close services-dropdown-content
+			$output .= "$indent</div>\n"; // Close services-dropdown-menu
+		}
+		else if ( $depth == 1 ) {
+			$output .= "$indent\t\t</div>\n"; // Close services-submenu
+		}
+	}
+	
+	// Start Element (li)
+	function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+		
+		// Add custom classes based on depth and children
+		if ( $depth == 0 ) {
+			// Top level menu item
+			if ( in_array('menu-item-has-children', $classes) ) {
+				$classes[] = 'menu-item-has-services';
+			}
+		} else if ( $depth == 1 ) {
+			// First level submenu item
+			if ( in_array('menu-item-has-children', $classes) ) {
+				$classes[] = 'services-dropdown-item';
+				$classes[] = 'has-submenu';
+			} else {
+				$classes[] = 'services-dropdown-item';
+			}
+		}
+		
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+		
+		// Output based on depth
+		if ( $depth == 0 ) {
+			// Top level - standard li
+			$output .= $indent . '<li' . $class_names .'>';
+		} else if ( $depth == 1 ) {
+			// First submenu level - use div instead of li
+			$output .= $indent . "\t\t" . '<div' . $class_names .'>';
+		}
+		
+		// Link attributes
+		$atts = array();
+		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+		$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+		$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+		
+		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+		
+		$attributes = '';
+		foreach ( $atts as $attr => $value ) {
+			if ( ! empty( $value ) ) {
+				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$attributes .= ' ' . $attr . '="' . $value . '"';
+			}
+		}
+		
+		// Link classes based on depth
+		$link_class = '';
+		if ( $depth == 1 ) {
+			$link_class = ' class="services-main-link"';
+		}
+		
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes . $link_class .'>';
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		
+		// Add arrow for items with children at depth 1
+		if ( $depth == 1 && in_array('menu-item-has-children', $classes) ) {
+			$item_output .= '<span class="menu-arrow-icon">›</span>';
+		}
+		
+		$item_output .= '</a>';
+		$item_output .= $args->after;
+		
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+	
+	// End Element (li)
+	function end_el( &$output, $item, $depth = 0, $args = null ) {
+		if ( $depth == 0 ) {
+			$output .= "</li>\n";
+		} else if ( $depth == 1 ) {
+			$output .= "</div>\n";
+		}
+	}
+}
+
+/**
+ * Mobile Menu Walker - similar structure but with mobile-specific classes
+ */
+class Mebel_Mobile_Walker extends Walker_Nav_Menu {
+	
+	function start_lvl( &$output, $depth = 0, $args = null ) {
+		$indent = str_repeat("\t", $depth);
+		
+		if ( $depth == 0 ) {
+			$output .= "\n$indent<div class=\"services-dropdown-menu mobile-services\">\n";
+			$output .= "$indent\t<div class=\"services-dropdown-content\">\n";
+		}
+		else if ( $depth == 1 ) {
+			$output .= "\n$indent\t\t<div class=\"services-submenu\">\n";
+		}
+	}
+	
+	function end_lvl( &$output, $depth = 0, $args = null ) {
+		$indent = str_repeat("\t", $depth);
+		
+		if ( $depth == 0 ) {
+			$output .= "$indent\t</div>\n";
+			$output .= "$indent</div>\n";
+		}
+		else if ( $depth == 1 ) {
+			$output .= "$indent\t\t</div>\n";
+		}
+	}
+	
+	function start_el( &$output, $item, $depth = 0, $args = null, $id = 0 ) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		
+		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+		
+		if ( $depth == 0 ) {
+			if ( in_array('menu-item-has-children', $classes) ) {
+				$classes[] = 'menu-item-has-services-mobile';
+			}
+		} else if ( $depth == 1 ) {
+			if ( in_array('menu-item-has-children', $classes) ) {
+				$classes[] = 'services-dropdown-item';
+				$classes[] = 'has-submenu';
+			} else {
+				$classes[] = 'services-dropdown-item';
+			}
+		}
+		
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+		$class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
+		
+		if ( $depth == 0 ) {
+			$output .= $indent . '<li' . $class_names .'>';
+		} else if ( $depth == 1 ) {
+			$output .= $indent . "\t\t" . '<div' . $class_names .'>';
+		}
+		
+		$atts = array();
+		$atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+		$atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+		$atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+		$atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+		
+		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+		
+		$attributes = '';
+		foreach ( $atts as $attr => $value ) {
+			if ( ! empty( $value ) ) {
+				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$attributes .= ' ' . $attr . '="' . $value . '"';
+			}
+		}
+		
+		$link_class = '';
+		if ( $depth == 1 ) {
+			$link_class = ' class="services-main-link"';
+		}
+		
+		$item_output = $args->before;
+		$item_output .= '<a'. $attributes . $link_class .'>';
+		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		
+		if ( $depth == 1 && in_array('menu-item-has-children', $classes) ) {
+			$item_output .= '<span class="menu-arrow-icon">›</span>';
+		}
+		
+		$item_output .= '</a>';
+		$item_output .= $args->after;
+		
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+	}
+	
+	function end_el( &$output, $item, $depth = 0, $args = null ) {
+		if ( $depth == 0 ) {
+			$output .= "</li>\n";
+		} else if ( $depth == 1 ) {
+			$output .= "</div>\n";
+		}
+	}
+}
+
+/**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/custom-header.php'; 
 
 /**
  * Custom template tags for this theme.
@@ -257,4 +474,15 @@ if (!is_admin()) {
         ob_start('mebel_remove_query_input_from_html');
     });
 }
+
+/**
+ * Принудительный редирект на HTTPS
+ */
+function mebel_force_ssl_redirect() {
+    if (!is_ssl() && !is_admin()) {
+        wp_redirect('https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], 301);
+        exit();
+    }
+}
+add_action('template_redirect', 'mebel_force_ssl_redirect'); 
 

@@ -2,6 +2,6 @@
 <section class="no-results not-found">
 		
 		<div class="page-content">
-		<h1 class="page-title"><?php echo "Ничего не найдено"; ?></h1>
+		<h1 class="page-title entry-title"><?php echo "Ничего не найдено"; ?></h1>
 	</div>
-</section>
+</section> 

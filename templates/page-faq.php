@@ -6,14 +6,14 @@ get_header();
 <section class="min-section">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_page_faq');?></h3>
+            <h1 class="page-title"><?php the_field('title_page_faq');?></h1>
             <p><?php the_field('description_page_faq');?></p>
-        </div>
+        </div> 
         <div class="faq-block">
         <?php 
-            $faq = get_field('faq_items');
+            $faq = get_field('faq_items'); 
             $adr_count = count($faq);
-            $i = 0;
+            $i = 0; 
             while ($i < $adr_count) : ?>
             <?php if ($i == 0) :?>
             <div class="faq-item active">
@@ -24,7 +24,7 @@ get_header();
                     <?php echo $faq[$i]['answer'];?>
                 </div>
             </div>
-            <?php else: ?>
+            <?php else: ?> 
             <div class="faq-item">
                 <div class="faq-question">
                     <h4><?php echo $faq[$i]['question'];?></h4>

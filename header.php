@@ -160,9 +160,9 @@
             }
         } 
 
-        @media (max-width: 1024px) {
+        @media (max-width: 1024px) { 
             /* Hide desktop dropdown on mobile */
-            #services-dropdown {
+            .menu-center .services-dropdown-menu {
                 display: none !important;
             }
 
@@ -317,7 +317,7 @@
                             <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logotype.svg" alt="">
                         </a>
                         <a href="<?php echo home_url('/'); ?>" class="logo-text">
-                            <h1><?php bloginfo('description');?></h1>
+                            <p><?php bloginfo('description');?></p>
                         </a>
                         <div class="cities-dropdown desk">
                             <div class="city-current">
@@ -338,58 +338,10 @@
                             <?php wp_nav_menu( array(
                                 'theme_location' => 'menu_header',
                                 'container' => false,
+                                'walker' => new Mebel_Custom_Walker()
                             ) ); ?>
                         </div>
                         <p class="time-work"><?php if (get_field('time_header', 'option')) the_field('time_header', 'option'); ?></p>
-                    </div>  
-                    
-                    <!-- Services Dropdown Menu -->
-                    <div class="services-dropdown-menu" id="services-dropdown">
-                        <div class="services-dropdown-content">
-                            <div class="services-dropdown-item has-submenu">
-                                <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>" class="services-main-link">ПЕРЕТЯЖКА МЯГКОЙ МЕБЕЛИ<span class="menu-arrow-icon">›</span></a>
-                                <div class="services-submenu">
-                                    <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#divany">Перетяжка диванов</a>
-                                    <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#krovati">Перетяжка кровати</a>
-                                    <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#kresla">Перетяжка кресел</a>
-                                    <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#stulya">Перетяжка стульев</a>
-                                    <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#pufy">Перетяжка пуфа и банкетки</a>
-                                    <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#kozha">Перетяжка кожаной мебели</a>
-                                    <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#ofis">Перетяжка офисной мебели</a>
-                                </div>
-                            </div>
-                            <?php 
-                            $page_caret = get_page_by_path('karetnaya-styazhka');
-                            $page_restavr = get_page_by_path('restavraciya-mebeli');
-                            $page_destroy = get_page_by_path('razborka-i-utilizaciya-mebeli');
-                            $page_movement = get_page_by_path('perevozka-mebeli');
-                            $page_order = get_page_by_path('izgotovlenie-mebeli-pod-zakaz');
-                            ?>
-                            <div class="services-dropdown-item">
-                                <a href="<?php echo $page_caret ? get_permalink($page_caret->ID) : '#'; ?>" class="services-main-link">КАРЕТНАЯ СТЯЖКА</a>
-                            </div>
-                            <div class="services-dropdown-item">
-                                <a href="<?php echo $page_restavr ? get_permalink($page_restavr->ID) : get_permalink(ID_PAGE_RESTAVRAT); ?>" class="services-main-link">РЕСТАВРАЦИЯ МЕБЕЛИ</a>
-                            </div>
-                            <div class="services-dropdown-item has-submenu">
-                                <a href="<?php echo get_permalink(ID_REMONT); ?>" class="services-main-link">РЕМОНТ МЯГКОЙ МЕБЕЛИ<span class="menu-arrow-icon">›</span></a>
-                                <div class="services-submenu">
-                                    <a href="<?php echo get_permalink(ID_REMONT); ?>#divany">Ремонт диванов</a>
-                                    <a href="<?php echo get_permalink(ID_REMONT); ?>#krovati">Ремонт кровати</a>
-                                    <a href="<?php echo get_permalink(ID_REMONT); ?>#kresla">Ремонт кресел</a>
-                                    <a href="<?php echo get_permalink(ID_REMONT); ?>#stulya">Ремонт стульев</a>
-                                </div>
-                            </div>
-                            <div class="services-dropdown-item">
-                                <a href="<?php echo $page_destroy ? get_permalink($page_destroy->ID) : get_permalink(ID_PAGE_DESTROY); ?>" class="services-main-link">РАЗБОРКА И УТИЛИЗАЦИЯ МЕБЕЛИ</a>
-                            </div>
-                            <div class="services-dropdown-item">
-                                <a href="<?php echo $page_movement ? get_permalink($page_movement->ID) : get_permalink(ID_PAGE_MOVEMENT); ?>" class="services-main-link">ПЕРЕВОЗКА МЕБЕЛИ</a>
-                            </div>
-                            <div class="services-dropdown-item">
-                                <a href="<?php echo $page_order ? get_permalink($page_order->ID) : get_permalink(ID_PAGE_MADE); ?>" class="services-main-link">ИЗГОТОВЛЕНИЕ МЕБЕЛИ ПОД ЗАКАЗ</a>
-                            </div> 
-                        </div>
                     </div>  
                     <div class="phone-block">
                         <a href="tel:<?php the_field('phone_link_header', 'option'); ?>" class="black-link"><?php the_field('phone_label_header','option'); ?></a>
@@ -404,56 +356,8 @@
                                 <?php wp_nav_menu( array(
                                     'theme_location' => 'menu_header',
                                     'container' => false,
+                                    'walker' => new Mebel_Mobile_Walker()
                                 ) ); ?> 
-                            </div>
-                            
-                            <!-- Mobile Services Dropdown Menu -->
-                            <div class="services-dropdown-menu mobile-services" id="services-dropdown-mobile">
-                                <div class="services-dropdown-content">
-                                    <div class="services-dropdown-item has-submenu">
-                                        <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>" class="services-main-link">ПЕРЕТЯЖКА МЯГКОЙ МЕБЕЛИ<span class="menu-arrow-icon">›</span></a>
-                                        <div class="services-submenu">
-                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#divany">Перетяжка диванов</a>
-                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#krovati">Перетяжка кровати</a>
-                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#kresla">Перетяжка кресел</a>
-                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#stulya">Перетяжка стульев</a>
-                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#pufy">Перетяжка пуфа и банкетки</a>
-                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#kozha">Перетяжка кожаной мебели</a>
-                                            <a href="<?php echo get_permalink(ID_PERETYAZHKA); ?>#ofis">Перетяжка офисной мебели</a>
-                                        </div>
-                                    </div>
-                                    <?php 
-                                    $page_caret = get_page_by_path('karetnaya-styazhka');
-                                    $page_restavr = get_page_by_path('restavraciya-mebeli');
-                                    $page_destroy = get_page_by_path('razborka-i-utilizaciya-mebeli');
-                                    $page_movement = get_page_by_path('perevozka-mebeli');
-                                    $page_order = get_page_by_path('izgotovlenie-mebeli-pod-zakaz');
-                                    ?>
-                                    <div class="services-dropdown-item">
-                                        <a href="<?php echo $page_caret ? get_permalink($page_caret->ID) : '#'; ?>" class="services-main-link">КАРЕТНАЯ СТЯЖКА</a>
-                                    </div>
-                                    <div class="services-dropdown-item">
-                                        <a href="<?php echo $page_restavr ? get_permalink($page_restavr->ID) : get_permalink(ID_PAGE_RESTAVRAT); ?>" class="services-main-link">РЕСТАВРАЦИЯ МЕБЕЛИ</a>
-                                    </div>
-                                    <div class="services-dropdown-item has-submenu">
-                                        <a href="<?php echo get_permalink(ID_REMONT); ?>" class="services-main-link">РЕМОНТ МЯГКОЙ МЕБЕЛИ<span class="menu-arrow-icon">›</span></a>
-                                        <div class="services-submenu">
-                                            <a href="<?php echo get_permalink(ID_REMONT); ?>#divany">Ремонт диванов</a>
-                                            <a href="<?php echo get_permalink(ID_REMONT); ?>#krovati">Ремонт кровати</a>
-                                            <a href="<?php echo get_permalink(ID_REMONT); ?>#kresla">Ремонт кресел</a>
-                                            <a href="<?php echo get_permalink(ID_REMONT); ?>#stulya">Ремонт стульев</a>
-                                        </div>
-                                    </div>
-                                    <div class="services-dropdown-item">
-                                        <a href="<?php echo $page_destroy ? get_permalink($page_destroy->ID) : get_permalink(ID_PAGE_DESTROY); ?>" class="services-main-link">РАЗБОРКА И УТИЛИЗАЦИЯ МЕБЕЛИ</a>
-                                    </div>
-                                    <div class="services-dropdown-item">
-                                        <a href="<?php echo $page_movement ? get_permalink($page_movement->ID) : get_permalink(ID_PAGE_MOVEMENT); ?>" class="services-main-link">ПЕРЕВОЗКА МЕБЕЛИ</a>
-                                    </div>
-                                    <div class="services-dropdown-item">
-                                        <a href="<?php echo $page_order ? get_permalink($page_order->ID) : get_permalink(ID_PAGE_MADE); ?>" class="services-main-link">ИЗГОТОВЛЕНИЕ МЕБЕЛИ ПОД ЗАКАЗ</a>
-                                    </div>
-                                </div>
                             </div>
                             
                             <div class="cities-dropdown">
@@ -488,43 +392,7 @@
 
         <script>
             jQuery(function($) {
-                // Simple initialization - find and mark services menu items
-                function initServicesMenu() {
-                    // Desktop menu
-                    $('.menu-center .menu-links > ul > li').each(function() {
-                        var $menuItem = $(this);
-                        var $link = $menuItem.find('> a');
-                        var linkText = $link.text().toUpperCase().trim();
-                        
-                        if (linkText.indexOf('УСЛУГИ') !== -1) {
-                            $menuItem.addClass('menu-item-has-services');
-                            var $dropdown = $('#services-dropdown');
-                            if ($dropdown.length && $menuItem.find('#services-dropdown').length === 0) {
-                                $menuItem.append($dropdown);
-                            }
-                        }
-                    });
-                    
-                    // Mobile menu
-                    $('.mobile-menu .menu-links > ul > li').each(function() {
-                        var $menuItem = $(this);
-                        var $link = $menuItem.find('> a');
-                        var linkText = $link.text().toUpperCase().trim();
-                        
-                        if (linkText.indexOf('УСЛУГИ') !== -1) {
-                            $menuItem.addClass('menu-item-has-services-mobile');
-                            var $dropdown = $('#services-dropdown-mobile');
-                            if ($dropdown.length && $menuItem.find('#services-dropdown-mobile').length === 0) {
-                                $menuItem.append($dropdown);
-                            }
-                        }
-                    });
-                }
-
                 $(document).ready(function() {
-                    initServicesMenu();
-                    setTimeout(initServicesMenu, 300);
-
                     // Mobile: Toggle main services menu
                     $(document).on('click', '.mobile-menu .menu-item-has-services-mobile > a', function(e) {
                         if ($(window).width() > 1024) return;
@@ -533,7 +401,7 @@
                         e.stopPropagation();
                         
                         var $parent = $(this).parent();
-                        var $dropdown = $parent.find('#services-dropdown-mobile');   
+                        var $dropdown = $parent.find('> .services-dropdown-menu');   
                         
                         if ($dropdown.length) {
                             $dropdown.slideToggle(200);
@@ -592,16 +460,16 @@
                         $('.mobile-menu-wrap').fadeOut(300);
                     }
                 });
-                <?php endif; ?>
+                <?php endif; ?> 
             })
-        </script>
+        </script> 
 
 		<?php if (is_front_page()) :?>
 
-        <div class="main-screen">
+        <div class="main-screen"> 
             <div class="content">
                 <div class="main-screen-text">
-                    <h2><?php the_field('title_header', 'option');?></h2>
+                    <h1><?php the_field('title_header', 'option');?></h1>
                     <div class="form-wrapp">
                         <?php $form_header = get_field('forma_header','option');?>
                         <?php echo do_shortcode($form_header);?>
@@ -635,8 +503,8 @@
  
             <div class="min-main-screen">
             <div class="content">
-                <div class="min-main-screen-text">
-                    <h4><?php the_field('title_header', 'option');?></h4>
+                <div class="min-main-screen-text"> 
+                    <p><?php the_field('title_header', 'option');?></p>
                     <div class="form-wrapp">
 						<?php $form_header = get_field('forma_header','option');?>
 						<?php echo do_shortcode($form_header);?>

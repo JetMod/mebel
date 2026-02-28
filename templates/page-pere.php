@@ -7,10 +7,10 @@ get_header();
 	<div class="content base-text black-text">
         <div>
             <?php while (have_posts()) : the_post(); ?>
-            <h2><?php the_title(); ?></h2>
-            <?php the_content(); ?>
+            <h1 class="page-title"><?php the_title(); ?></h1>
+            <?php the_content(); ?> 
 		    <?php endwhile; ?>
-        </div>
+        </div> 
         <?php if (get_field('label_form_file')) :?>
         <a href="#callback-file" class="btn-gold open-js btn-center"><?php the_field('label_form_file');?></a>
         <?php endif; ?>
@@ -20,7 +20,7 @@ get_header();
         <h3><?php the_field('title_form_file', 'option'); ?></h3>
         <?php echo do_shortcode(get_field('form_file','option')); ?>
     </div>
-</div>
+</div> 
 
 
 <?php if (have_rows('types_obi')) : ?>
@@ -39,7 +39,7 @@ get_header();
                 <span><?php the_sub_field('title_obi');?></span>
             </div>
             <?php endif; ?>
-        <?php endwhile; ?>
+        <?php endwhile; ?> 
         </div>
     </div>
 </section>
@@ -48,7 +48,7 @@ get_header();
 <section class="min-section pb0">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_section_price_obi');?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_price_obi');?></h2>
             <p><?php the_field('subtitle_section_price_obi');?></p>
         </div>
         <div class="grid-prices mb0">
@@ -91,7 +91,7 @@ get_header();
 <section class="min-section border-bottom-light">
     <div class="content">
         <?php if (get_field('title_compose_price_obi')) : ?>
-        <h3><?php the_field('title_compose_price_obi');?></h3>
+        <h2 class="materials-title"><?php the_field('title_compose_price_obi');?></h2>
         <?php endif; ?>
         <div class="base-text">
             <?php if (get_field('text_compose_price_obi')) : ?>
@@ -111,7 +111,7 @@ get_header();
 
 <section class="crem-section pb60" id="works">
     <div class="content">
-        <h3><?php the_field('title_section_before-after', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_before-after', ID_FRONTPAGE);?></h2>
     <?php if (have_rows('slides_before-after', ID_FRONTPAGE)) :?>
         <div class="before-after-slider">
             <div class="swiper-container">
@@ -156,7 +156,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h3><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -181,7 +181,7 @@ get_header();
 <section class="min-section">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_section_faq', ID_FRONTPAGE);?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_faq', ID_FRONTPAGE);?></h2>
             <p><?php the_field('subtitle_section_faq', ID_FRONTPAGE);?></p>
         </div>
         <div class="faq-block">
@@ -218,12 +218,12 @@ get_header();
 <section class="base-section pd-tb-60 crem-fon" id="stuff">
     <div class="content">
         <div class="materials-header">
-            <h3><?php the_field('title_1_materials', ID_FRONTPAGE);?></h3>
+            <h2 class="materials-title"><?php the_field('title_1_materials', ID_FRONTPAGE);?></h2>
             <h5><?php the_field('title_2_materials', ID_FRONTPAGE);?></h5>
-        </div>
+        </div> 
         <div class="flex-btns">
             <?php if (get_field('link_btn_choose_material', ID_FRONTPAGE)) :?><a href="<?php the_field('link_btn_choose_material', ID_FRONTPAGE);?>" class="btn-empty">выберите ткань</a><?php endif; ?>
-            <?php if (get_field('catalog_btn_materials', ID_FRONTPAGE)):?><a href="<?php the_field('catalog_btn_materials');?> rel='download', ID_FRONTPAGE>" class="btn-empty btn-download">Скачать каталог</a><?php endif; ?>
+            <?php if (get_field('catalog_btn_materials', ID_FRONTPAGE)):?><a href="<?php the_field('catalog_btn_materials', ID_FRONTPAGE);?>" class="btn-empty btn-download" download>Скачать каталог</a><?php endif; ?>
         </div>
         <?php $materials = new WP_Query(array('post_type'=>'materials'));
         if ($materials->have_posts()):?>
@@ -283,7 +283,7 @@ get_header();
 <section class="crem-section border-bottom-dark">
     <div class="content">
         <div class="masters-block">
-            <h2><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
+            <h2 class="materials-title"><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
             <div class="masters">
             <?php while(have_rows('masters', ID_FRONTPAGE)) : the_row(); ?>
                 <div class="master-item">
@@ -304,7 +304,7 @@ get_header();
 <section class="base-section crem-fon border-bottom-dark">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_photos_section_over', ID_PERETYAZHKA);?></h3>
+            <h2 class="materials-title"><?php the_field('title_photos_section_over', ID_PERETYAZHKA);?></h2>
             <p><?php the_field('subtitle_photos_section_over', ID_PERETYAZHKA);?></p>
         </div>
         <div class="photos-block">
@@ -318,7 +318,7 @@ get_header();
 
 <section class="crem-fon mid-section">
     <div class="content">
-        <h3><?php the_field('title_section_stages', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_stages', ID_FRONTPAGE);?></h2>
         <div class="grid-stadies">
         <?php while (have_rows('stages', ID_FRONTPAGE)) : the_row(); ?>
             <div class="stadi-item">

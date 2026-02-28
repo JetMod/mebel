@@ -6,13 +6,13 @@ get_header();
 	<div class="content base-text">
 		<?php while (have_posts()) : the_post(); ?>
 		<div class="center-descrip">
-            <h2><?php the_title(); ?></h2>
+            <h1 class="page-title"><?php the_title(); ?></h1>
         </div>
 
-		<?php the_content(); ?>
+		<?php the_content(); ?> 
 
 		<?php endwhile; ?>
 	</div>
 </section>
-<?php
+<?php  
 get_footer();

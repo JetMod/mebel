@@ -37,11 +37,11 @@ if (get_field('ok_link_header', 'option')) {
         <div class="title-section">
         <?php while (have_posts()) : the_post(); ?>
             <div class="center-descrip">
-                <h2><?php the_title(); ?></h2>
+                <h1 class="page-title"><?php the_title(); ?></h1> 
             </div>
-            <?php the_content(); ?>
+            <?php the_content(); ?> 
 		<?php endwhile; ?>  
-        </div>  
+        </div>   
         <div class="address-block">
             <?php 
                 $adresses = get_field('adress_contacts');
@@ -59,7 +59,7 @@ if (get_field('ok_link_header', 'option')) {
                 ?>
                     <div class="address-item">
                         <!-- Видимый контент без микроразметки (чтобы избежать дублирования) -->
-                        <h4>Город <?php echo $adresses[$i]['town'];?></h4>
+                        <h4> <?php echo $adresses[$i]['town'];?></h4>
                         <p><?php echo $adresses[$i]['adres'] ?></p>
                         <a href="#map<?php echo $i ?>" class="map-js">Смотреть на карте</a>
                     </div>  

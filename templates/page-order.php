@@ -7,10 +7,10 @@ get_header();
     <div class="content">
         <div class="title-section">
         <?php while (have_posts()) : the_post(); ?>
-            <h2><?php the_title();?></h2>
+            <h1 class="page-title"><?php the_title();?></h1>
 		    <?php the_content(); ?>
 
-		<?php endwhile; ?>
+		<?php endwhile; ?>  
         </div>
         <?php if (have_rows('services_3')) :?>
         <div class="services">
@@ -20,7 +20,7 @@ get_header();
                 <h3><?php the_sub_field('name_serv');?></h3>
                 <a href="<?php the_sub_field('link_serv');?>">Перейти</a>
             </div>
-            <?php endwhile; ?>
+            <?php endwhile; ?> 
         </div>
         <?php endif; ?>
     </div>

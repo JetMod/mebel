@@ -7,11 +7,11 @@ get_header();
 	<div class="content base-text black-text">
         <div>
             <?php while (have_posts()) : the_post(); ?>
-            <h2><?php  the_title(); ?></h2>
+            <h1 class="page-title"><?php  the_title(); ?></h1>
             <?php the_content(); ?>
 		<?php endwhile; ?>
-    </div>
-</section>
+    </div> 
+</section> 
 
 <?php if (have_rows('gallery_works')) : ?>
 <section class='base-section'>
@@ -26,7 +26,7 @@ get_header();
 <?php endif; ?>
 
 <section class="koff-section">
-    <div class="content over-hid">
+    <div class="content over-hid"> 
         <div class="center-descrip">
             <?php the_field('zagolovki_section_reviews', ID_FRONTPAGE); ?>
         </div>
@@ -34,9 +34,9 @@ get_header();
             <?php while (have_rows('links_top_reviews', ID_FRONTPAGE)) : the_row(); ?>
                 <a href="<?php the_sub_field('link_url'); ?>" target='_blank'><?php the_sub_field('link_label');?></a>
             <?php endwhile; ?>
-        </div>
+        </div> 
         <div class="logos-slider-wrap">
-            <h3><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -61,7 +61,7 @@ get_header();
 <section class="crem-section border-bottom-dark">
     <div class="content">
         <div class="masters-block">
-            <h2><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
+            <h2 class="materials-title"><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
             <div class="masters">
             <?php while(have_rows('masters', ID_FRONTPAGE)) : the_row(); ?>
                 <div class="master-item">

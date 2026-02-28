@@ -7,22 +7,22 @@ get_header();
 	<div class="content base-text black-text">
         <div>
             <?php while (have_posts()) : the_post(); ?>
-                <h2><?php the_title(); ?></h2>
+                <h1 class="page-title"><?php the_title(); ?></h1> 
                 <div class="image-right minis-img">
                     <?php the_post_thumbnail('full');?>
                     <div class="text-block text-base">
                         <?php the_content(); ?>
                     </div>
                 </div>
-		    <?php endwhile; ?>
+		    <?php endwhile; ?> 
         </div>
-</section>
+</section> 
 
 
 <section class="min-section">
-    <div class="content">
+    <div class="content"> 
         <div class="center-descrip">
-            <h3><?php the_field('title_section_faq', ID_FRONTPAGE);?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_faq', ID_FRONTPAGE);?></h2>
             <p><?php the_field('subtitle_section_faq', ID_FRONTPAGE);?></p>
         </div>
         <div class="faq-block">
@@ -59,12 +59,12 @@ get_header();
 <section class="base-section pd-tb-60 crem-fon" id="stuff">
     <div class="content">
         <div class="materials-header">
-            <h3><?php the_field('title_1_materials', ID_FRONTPAGE);?></h3>
+            <h2 class="materials-title"><?php the_field('title_1_materials', ID_FRONTPAGE);?></h2>
             <h5><?php the_field('title_2_materials', ID_FRONTPAGE);?></h5>
-        </div>
+        </div> 
         <div class="flex-btns">
             <?php if (get_field('link_btn_choose_material', ID_FRONTPAGE)) :?><a href="<?php the_field('link_btn_choose_material', ID_FRONTPAGE);?>" class="btn-empty">выберите ткань</a><?php endif; ?>
-            <?php if (get_field('catalog_btn_materials', ID_FRONTPAGE)):?><a href="<?php the_field('catalog_btn_materials');?> rel='download', ID_FRONTPAGE>" class="btn-empty btn-download">Скачать каталог</a><?php endif; ?>
+            <?php if (get_field('catalog_btn_materials', ID_FRONTPAGE)):?><a href="<?php the_field('catalog_btn_materials', ID_FRONTPAGE);?>" class="btn-empty btn-download" download>Скачать каталог</a><?php endif; ?>
         </div>
         <?php $materials = new WP_Query(array('post_type'=>'materials'));
         if ($materials->have_posts()):?>
@@ -123,7 +123,7 @@ get_header();
 
 <section class="crem-fon mid-section">
     <div class="content">
-        <h3><?php the_field('title_section_stages', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_stages', ID_FRONTPAGE);?></h2>
         <div class="grid-stadies">
         <?php while (have_rows('stages', ID_FRONTPAGE)) : the_row(); ?>
             <div class="stadi-item">

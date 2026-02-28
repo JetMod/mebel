@@ -8,9 +8,9 @@ get_header();
 		<?php while (have_posts()) : the_post(); ?>
 		<div>
             <div class="center-descrip">
-                <h2><?php the_title(); ?></h2>
+                <h1 class="page-title"><?php the_title(); ?></h1>
             </div>
-			<?php the_content(); ?>
+			<?php the_content(); ?> 
 		</div>
         <?php endwhile; ?>
         <?php if (have_rows('content_btn')) :?>
@@ -18,12 +18,12 @@ get_header();
                 <div>
                 <?php if (get_sub_field('content')): ?>
                     <?php the_sub_field('content'); ?>
-                <?php endif; ?>
+                <?php endif; ?> 
                 <?php if (get_sub_field('btn_link')) : ?>
                     <div style="padding-top:25px";>
                         <a href="<?php the_sub_field('btn_link');?>" class="btn-gold open-js"><?php the_sub_field('btn_label');?></a>
                     </div>
-                <?php endif; ?>
+                <?php endif; ?> 
                 </div>
             <?php endwhile; ?>
         <?php endif; ?>

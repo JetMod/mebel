@@ -5,10 +5,10 @@ get_header();
 
 <section class="crem-section pb60" id="works">
     <div class="content">
-        <h3><?php the_field('title_section_before-after', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_before-after', ID_FRONTPAGE);?></h2>
     <?php if (have_rows('slides_before-after', ID_FRONTPAGE)) :?>
         <div class="before-after-slider">
-            <div class="swiper-container">
+            <div class="swiper-container"> 
                 <div class="swiper-wrapper">
                 <?php while( have_rows('slides_before-after', ID_FRONTPAGE)) : the_row(); ?>
                     <div class="swiper-slide">
@@ -20,8 +20,8 @@ get_header();
                             <div class="after-block">
                                 <span>после</span>
                                 <img src="<?php the_sub_field('image_after');?>" alt="">
-                            </div>
-                        </div>
+                            </div> 
+                        </div> 
                     </div>
                 <?php endwhile; ?>
                 </div>
@@ -50,7 +50,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h3><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -75,7 +75,7 @@ get_header();
 <section class="min-section">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_section_faq', ID_FRONTPAGE);?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_faq', ID_FRONTPAGE);?></h2>
             <p><?php the_field('subtitle_section_faq', ID_FRONTPAGE);?></p>
         </div>
         <div class="faq-block">
@@ -113,10 +113,10 @@ get_header();
 	<div class="content base-text black-text">
         <div>
             <?php while (have_posts()) : the_post(); ?>
-            <h2><?php the_title(); ?></h2>
+            <h1 class="page-title"><?php the_title(); ?></h1>
             <?php the_content(); ?>
 		    <?php endwhile; ?>
-        </div>
+        </div> 
     </div>
 </section>
 
@@ -157,7 +157,7 @@ get_header();
 
 <section class="crem-fon mid-section">
     <div class="content">
-        <h3><?php the_field('title_section_stages', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_stages', ID_FRONTPAGE);?></h2>
         <div class="grid-stadies">
         <?php while (have_rows('stages', ID_FRONTPAGE)) : the_row(); ?>
             <div class="stadi-item">

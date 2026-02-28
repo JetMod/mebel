@@ -7,22 +7,22 @@ get_header();
 	<div class="content base-text black-text">
         <div>
             <?php while (have_posts()) : the_post(); ?>
-            <h2><?php  the_title(); ?></h2>
+            <h1 class="page-title"><?php  the_title(); ?></h1>
             <div class="image-left minis-img">
                 <img src="<?php echo get_template_directory_uri() . '/assets/img/logotype.svg';?>" alt="" style="object-fit:contain">
                 <div class="text-block text-base">
-                    <?php the_content(); ?>
+                    <?php the_content(); ?> 
                 </div>
             </div>
             <?php endwhile; ?>
         </div>
-    </div>
+    </div> 
 </section>
 
 <section class="crem-section border-bottom-dark">
-    <div class="content">
+    <div class="content"> 
         <div class="masters-block">
-            <h2><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
+            <h2 class="materials-title"><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
             <div class="masters">
             <?php while(have_rows('masters', ID_FRONTPAGE)) : the_row(); ?>
                 <div class="master-item">
@@ -37,13 +37,13 @@ get_header();
             <?php endif;?>
         </div>
     </div>
-</section>
+</section> 
 
 <?php if (have_rows('foto_products_over', ID_PERETYAZHKA)) :?>
 <section class="base-section crem-fon border-bottom-dark">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_photos_section_over', ID_PERETYAZHKA);?></h3>
+            <h2 class="materials-title"><?php the_field('title_photos_section_over', ID_PERETYAZHKA);?></h2>
             <p><?php the_field('subtitle_photos_section_over', ID_PERETYAZHKA);?></p>
         </div>
         <div class="photos-block">
@@ -66,7 +66,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h3><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -90,7 +90,7 @@ get_header();
 
 <section class="crem-fon mid-section">
     <div class="content">
-        <h3><?php the_field('title_section_stages', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_stages', ID_FRONTPAGE);?></h2>
         <div class="grid-stadies">
         <?php while (have_rows('stages', ID_FRONTPAGE)) : the_row(); ?>
             <div class="stadi-item">

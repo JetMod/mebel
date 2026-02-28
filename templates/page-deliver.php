@@ -7,9 +7,9 @@ get_header();
 	<div class="content base-text black-text">
         <div>
             <?php while (have_posts()) : the_post(); ?>
-                <h2><?php  the_title(); ?></h2>
+                <h1 class="page-title"><?php  the_title(); ?></h1>
                 <?php the_content(); ?>
-            <?php endwhile; ?>
+            <?php endwhile; ?> 
         </div>
         <?php if (get_field('text_block_img')) :?>
         <div>
@@ -20,15 +20,15 @@ get_header();
                 </div>
             </div>
         </div>
-        <?php endif; ?>
+        <?php endif; ?> 
 
 	</div>
-</section>
-
+</section> 
+ 
 <section class="min-section">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_section_faq', ID_FRONTPAGE);?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_faq', ID_FRONTPAGE);?></h2>
             <p><?php the_field('subtitle_section_faq', ID_FRONTPAGE);?></p>
         </div>
         <div class="faq-block">
@@ -63,7 +63,7 @@ get_header();
 
 <section class="crem-fon mid-section">
     <div class="content">
-        <h3><?php the_field('title_section_stages', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_stages', ID_FRONTPAGE);?></h2>
         <div class="grid-stadies">
         <?php while (have_rows('stages', ID_FRONTPAGE)) : the_row(); ?>
             <div class="stadi-item">

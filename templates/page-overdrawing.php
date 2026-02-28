@@ -6,14 +6,14 @@ get_header();
 <section class="text-section">
 	<div class="content base-text">
 		<?php while (have_posts()) : the_post(); ?>
-        <h2><?php  the_title(); ?></h2>
+        <h1 class="page-title"><?php  the_title(); ?></h1>
 		<?php the_content(); ?>
 
 		<?php endwhile; ?>
-
-        <div>
+  
+        <div> 
         <?php if (get_field('title_advants_over')): ?>
-            <h3><?php the_field('title_advants_over');?></h3>
+            <h2 class="materials-title"><?php the_field('title_advants_over');?></h2>
         <?php endif; ?>
         <?php if (have_rows('advant_over_items')) : ?>
             <div class="icon-list">
@@ -26,7 +26,7 @@ get_header();
             </div>
         <?php endif;?>
         </div>
-
+ 
         <div>
             <?php if (get_field('text_above_button_file')) : ?>
                 <div class="min-title">
@@ -58,7 +58,7 @@ get_header();
 <section class="min-section pb0">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_section_prices_over');?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_prices_over');?></h2>
             <p><?php the_field('subtitle_section_prices_over');?></p>
         </div>
         <div class="grid-prices mb0">
@@ -92,7 +92,7 @@ get_header();
 <section class="min-section border-bottom-light">
     <div class="content">
         <?php if (get_field('title_compose_price_over')) : ?>
-        <h3><?php the_field('title_compose_price_over');?></h3>
+        <h2 class="materials-title"><?php the_field('title_compose_price_over');?></h2>
         <?php endif; ?>
         <div class="base-text">
             <?php if (get_field('tekst_bloka_iz_chego_skladyvaetsya_czena')) : ?>
@@ -122,7 +122,7 @@ get_header();
         <?php endif; ?>
             <img src="<?php the_sub_field('image_over_type');?>" alt="">
             <div class="text-block text-base">
-                <h3><?php the_sub_field('title_over_type');?></h3>
+                <h2 class="materials-title"><?php the_sub_field('title_over_type');?></h2>
                 <?php the_sub_field('text_over_type'); ?>
             </div>
         </div>
@@ -141,13 +141,13 @@ get_header();
 
 <section class="base-section pd-tb-60 crem-fon" id="stuff">
     <div class="content">
-        <div class="materials-header">
-            <h3><?php the_field('title_section_stuff_over');?></h3>
+        <div class="materials-header"> 
+            <h2 class="materials-title"><?php the_field('title_section_stuff_over');?></h2>
         <h5><?php the_field('subtitle_section_stuff_over');?></h5>
         </div>
         <?php if (get_field('catalog_upload_over')) :?>
         <div class="flex-btns">
-            <a href="<?php the_field('catalog_upload_over');?>" class="btn-empty btn-download" rel="download">Скачать каталог</a>
+            <a href="<?php the_field('catalog_upload_over');?>" class="btn-empty btn-download" download>Скачать каталог</a>
         </div>
         <?php endif; ?>
         <?php $materials = new WP_Query(array('post_type'=>'materials'));
@@ -216,7 +216,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h3><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -240,7 +240,7 @@ get_header();
 
 <section class="crem-section pb60" id="works">
     <div class="content">
-        <h3><?php the_field('title_section_before-after', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_before-after', ID_FRONTPAGE);?></h2>
     <?php if (have_rows('slides_before-after', ID_FRONTPAGE)) :?>
         <div class="before-after-slider">
             <div class="swiper-container">
@@ -277,7 +277,7 @@ get_header();
 <section class="min-section">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_section_faq', ID_FRONTPAGE);?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_faq', ID_FRONTPAGE);?></h2>
             <p><?php the_field('subtitle_section_faq', ID_FRONTPAGE);?></p>
         </div>
         <div class="faq-block">
@@ -312,7 +312,7 @@ get_header();
 <section class="crem-section border-bottom-dark">
     <div class="content">
         <div class="masters-block">
-            <h2><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
+            <h2 class="materials-title"><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
             <div class="masters">
             <?php while(have_rows('masters', ID_FRONTPAGE)) : the_row(); ?>
                 <div class="master-item">
@@ -333,7 +333,7 @@ get_header();
 <section class="base-section crem-fon border-bottom-dark">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_photos_section_over');?></h3>
+            <h2 class="materials-title"><?php the_field('title_photos_section_over');?></h2>
             <p><?php the_field('subtitle_photos_section_over');?></p>
         </div>
         <div class="photos-block">
@@ -347,7 +347,7 @@ get_header();
 
 <section class="crem-fon mid-section">
     <div class="content">
-        <h3><?php the_field('title_section_stages', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_stages', ID_FRONTPAGE);?></h2>
         <div class="grid-stadies">
         <?php while (have_rows('stages', ID_FRONTPAGE)) : the_row(); ?>
             <div class="stadi-item">

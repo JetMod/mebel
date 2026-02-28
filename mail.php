@@ -13,7 +13,7 @@ get_header();
                             <th>Тип / сложность</th>
                             <th>Простая</th>
                             <th>Сложная</th>
-                        </tr>
+                        </tr> 
                     <?php while(have_rows('prices_front')): the_row(); ?>
                         <tr>
                             <td><?php the_sub_field('prod_name');?></td>
@@ -21,7 +21,7 @@ get_header();
                             <td><?php the_sub_field('price_complex');?> руб</td>
                         </tr>
                     <?php endwhile; ?>
-                    </table>
+                    </table> 
                 </div>
                 <div class="center-text-banner">
                     <?php if (get_field('price_link_label')):?><a href="<?php the_field('price_link');?>" class="link-gold"><?php the_field('price_link_label');?></a><?php endif; ?>
@@ -29,11 +29,11 @@ get_header();
                     <?php if(get_field('show_button_under_prices')): ?><a href="#callback" class="btn-gold open-js">Рассчитать стоимость</a><?php endif; ?>
                 </div>
             </div>
-        </section>
+        </section> 
 
         <section class="crem-section pb60" id="works">
             <div class="content">
-                <h3><?php the_field('title_section_before-after');?></h3>
+                <h2 class="materials-title"><?php the_field('title_section_before-after');?></h2>
             <?php if (have_rows('slides_before-after')) :?>
                 <div class="before-after-slider">
                     <div class="swiper-container">
@@ -78,7 +78,7 @@ get_header();
                     <?php endwhile; ?>
                 </div>
                 <div class="logos-slider-wrap">
-                    <h3><?php the_field('title_before_reviews'); ?></h3>
+                    <h2 class="materials-title"><?php the_field('title_before_reviews'); ?></h2>
                     <div class="logos-slider">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
@@ -120,12 +120,12 @@ get_header();
         <section class="base-section pd-tb-60 crem-fon" id="stuff">
             <div class="content">
                 <div class="materials-header">
-                    <h3><?php the_field('title_1_materials');?></h3>
+                    <h2 class="materials-title"><?php the_field('title_1_materials');?></h2>
                     <h5><?php the_field('title_2_materials');?></h5>
-                </div>
+                </div> 
                 <div class="flex-btns">
                     <?php if (get_field('link_btn_choose_material')) :?><a href="<?php the_field('link_btn_choose_material');?>" class="btn-empty">выберите ткань</a><?php endif; ?>
-                    <?php if (get_field('catalog_btn_materials')):?><a href="<?php the_field('catalog_btn_materials');?> rel='download'>" class="btn-empty btn-download">Скачать каталог</a><?php endif; ?>
+                    <?php if (get_field('catalog_btn_materials')):?><a href="<?php the_field('catalog_btn_materials');?>" class="btn-empty btn-download" download>Скачать каталог</a><?php endif; ?>
                 </div>
                 <?php $materials = new WP_Query(array('post_type'=>'materials'));
                 if ($materials->have_posts()):?>
@@ -185,7 +185,7 @@ get_header();
         <section class="section section-about" id="about">
             <div class="content about-block">
                 <div class="text-about">
-                    <h2><?php the_field('title_section_aboutus');?></h2>
+                    <h2 class="materials-title"><?php the_field('title_section_aboutus');?></h2>
                     <p><?php the_field('text_section_aboutus'); ?></p>
                     <php if (get_field('file_section_aboutus')) : ?>
                         <a href="<?php the_field('file_section_aboutus');?>" class="btn-gold min-h">Скачать договор</a>
@@ -198,7 +198,7 @@ get_header();
         <section class="crem-section">
             <div class="content">
                 <div class="marsters-block">
-                    <h2><?php the_field('title_section_masters');?></h2>
+                    <h2 class="materials-title"><?php the_field('title_section_masters');?></h2>
                     <div class="masters">
                     <?php while(have_rows('masters')) : the_row(); ?>
                         <div class="master-item">
@@ -212,8 +212,8 @@ get_header();
         </section>
 
         <section class="base-section border-bottom-light">
-            <div class="content">
-                <h3><?php the_field('title_section_gramots');?></h3>
+            <div class="content"> 
+                <h2 class="materials-title"><?php the_field('title_section_gramots');?></h2>
                 <div class="letters-slider">
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
@@ -237,7 +237,7 @@ get_header();
         <section class="min-section">
             <div class="content">
                 <div class="center-descrip">
-                    <h3><?php the_field('title_section_faq');?></h3>
+                    <h2 class="materials-title"><?php the_field('title_section_faq');?></h2>
                     <p><?php the_field('subtitle_section_faq');?></p>
                 </div>
                 <div class="faq-block">
@@ -258,7 +258,7 @@ get_header();
 
         <section class="crem-fon mid-section">
             <div class="content">
-                <h3><?php the_field('title_section_stages');?></h3>
+                <h2 class="materials-title"><?php the_field('title_section_stages');?></h2>
                 <div class="grid-stadies">
                 <?php while (have_rows('stages')) : the_row(); ?>
                     <div class="stadi-item">

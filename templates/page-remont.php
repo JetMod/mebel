@@ -7,10 +7,10 @@ get_header();
 	<div class="content base-text black-text">
         <div>
             <?php while (have_posts()) : the_post(); ?>
-            <h2><?php the_title(); ?></h2>
+            <h1 class="page-title"><?php the_title(); ?></h1>
             <?php the_content(); ?>
 		    <?php endwhile; ?>
-        </div>
+        </div> 
     </div>
 
     <?php if (have_rows('remont_types_one')) : ?>
@@ -18,17 +18,17 @@ get_header();
     <div class="content base-text">
         <?php $i = 1;
         while (have_rows('remont_types_one')) : the_row();
-        if ($i % 2 == 0) :?>
+        if ($i % 2 == 0) :?> 
         <div class="image-right">
         <?php else: ?>
         <div class="image-left">
         <?php endif; ?>
             <img src="<?php the_sub_field('izobrazhenie');?>" alt="">
             <div class="text-block text-base">
-                <h3><?php the_sub_field('title_rem_type');?></h3>
+                <h2 class="materials-title"><?php the_sub_field('title_rem_type');?></h2>
                 <?php the_sub_field('text_rem_type'); ?>
             </div>
-        </div>
+        </div>  
         <?php $i++; endwhile; ?>
     </div>
     <?php endif; ?>
@@ -41,7 +41,7 @@ get_header();
             <div class="image-left">
                 <img src="<?php the_sub_field('izobrazhenie');?>" alt="">
                 <div class="text-block text-base">
-                    <h3><?php the_sub_field('title_rem_type');?></h3>
+                    <h2 class="materials-title"><?php the_sub_field('title_rem_type');?></h2>
                     <?php the_sub_field('text_rem_type'); ?>
                 </div>
             </div>
@@ -75,7 +75,7 @@ get_header();
 <section class="min-section pb0">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_section_price_rem');?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_price_rem');?></h2>
             <p><?php the_field('subtitle_section_price_rem');?></p>
         </div>
         <div class="grid-prices mb0">
@@ -118,7 +118,7 @@ get_header();
 <section class="min-section border-bottom-light">
     <div class="content">
         <?php if (get_field('title_compose_price_rem')) : ?>
-        <h3><?php the_field('title_compose_price_rem');?></h3>
+        <h2 class="materials-title"><?php the_field('title_compose_price_rem');?></h2>
         <?php endif; ?>
         <div class="base-text">
             <?php if (get_field('text_compose_price_rem')) : ?>
@@ -145,7 +145,7 @@ get_header();
 <?php if (have_rows('furnitura', ID_REMONT)) : ?>
 <section class="min-section">
     <div class="content base-text">
-        <h2><?php the_field('title_section_furnitura', ID_REMONT);?></h2>
+        <h2 class="materials-title"><?php the_field('title_section_furnitura', ID_REMONT);?></h2>
         <div class="furni-block">
         <?php while (have_rows('furnitura', ID_REMONT)) : the_row(); ?>
             <div class="furni-item">
@@ -169,7 +169,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h3><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -195,7 +195,7 @@ get_header();
 <section class="min-section">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_section_faq', ID_FRONTPAGE);?></h3>
+            <h2 class="materials-title"><?php the_field('title_section_faq', ID_FRONTPAGE);?></h2>
             <p><?php the_field('subtitle_section_faq', ID_FRONTPAGE);?></p>
         </div>
         <div class="faq-block">
@@ -232,7 +232,7 @@ get_header();
 <section class="crem-section border-bottom-dark">
     <div class="content">
         <div class="masters-block">
-            <h2><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
+            <h2 class="materials-title"><?php the_field('title_section_masters', ID_FRONTPAGE);?></h2>
             <div class="masters">
             <?php while(have_rows('masters', ID_FRONTPAGE)) : the_row(); ?>
                 <div class="master-item">
@@ -253,7 +253,7 @@ get_header();
 <section class="base-section crem-fon border-bottom-dark">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_photos_section_over', ID_PERETYAZHKA);?></h3>
+            <h2 class="materials-title"><?php the_field('title_photos_section_over', ID_PERETYAZHKA);?></h2>
             <p><?php the_field('subtitle_photos_section_over', ID_PERETYAZHKA);?></p>
         </div>
         <div class="photos-block">
@@ -267,7 +267,7 @@ get_header();
 
 <section class="crem-fon mid-section">
     <div class="content">
-        <h3><?php the_field('title_section_stages', ID_FRONTPAGE);?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_stages', ID_FRONTPAGE);?></h2>
         <div class="grid-stadies">
         <?php while (have_rows('stages', ID_FRONTPAGE)) : the_row(); ?>
             <div class="stadi-item">
