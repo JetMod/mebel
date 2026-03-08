@@ -35,7 +35,7 @@ get_header();
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>
                 </div>
-            </div>
+            </div> 
         <?php endwhile; ?>
         <?php else: ?>
         <?php while (have_rows('faq-items_front', ID_FRONTPAGE)) : the_row(); ?>

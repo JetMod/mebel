@@ -31,14 +31,14 @@ get_header();
             <?php if (get_field('text_above_button_file')) : ?>
                 <div class="min-title">
                     <h4><?php the_field('text_above_button_file');?></h4>
-                    <a href="#callback-file" class="btn-gold open-js">Рассчитать стоимость по фото</a>
+                    <a href="#callback-file" class="btn-gold open-js callback-color">Рассчитать стоимость по фото</a>
                 </div>
             <?php endif; ?>
                 <div class="pop-up pop-min pop-styles" id="callback-file">
                     <div class="contact-form">
                         <h3><?php the_field('title_form_file', 'option'); ?></h3>
                         <?php echo do_shortcode(get_field('form_file','option')); ?>
-                    </div>
+                    </div> 
                 </div>
             <?php the_field('text_before_gallery_over');?>
         </div>
@@ -199,7 +199,7 @@ get_header();
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
 </div>
 <?php endwhile; ?>
 <?php wp_reset_postdata(); ?>
@@ -215,8 +215,8 @@ get_header();
                 <a href="<?php the_sub_field('link_url'); ?>" target='_blank'><?php the_sub_field('link_label');?></a>
             <?php endwhile; ?>
         </div>
-        <div class="logos-slider-wrap">
-            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
+        <div class="logos-slider-wrap"> 
+            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">

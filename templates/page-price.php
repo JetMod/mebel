@@ -35,7 +35,7 @@ get_header();
                     </div>
                 <?php endif;
             }
-            ?>
+            ?> 
         </div>
         <div class="center-text-banner">
             <a href="#callback" class="btn-gold open-js">Заказать услугу</a>

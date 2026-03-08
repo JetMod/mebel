@@ -140,7 +140,7 @@ get_header();
             <a href="<?php the_field('works_link', ID_FRONTPAGE);?>" class="link-gold just-link"><?php the_field('works_link_label', ID_FRONTPAGE);?></a>
             <?php if (get_field('show_button_under_before-after', ID_FRONTPAGE)) :?><a href="#callback" class="btn-gold open-js">Узнать стоимость своего заказа</a><?php endif; ?>
         </div>
-    </div>
+    </div> 
 </section>
 
 <section class="koff-section">
@@ -154,7 +154,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
+            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">

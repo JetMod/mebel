@@ -20,7 +20,7 @@ get_header();
             <?php while(have_rows('gallery_works')) : the_row(); ?>
                 <img src="<?php the_sub_field('image_gal'); ?>" alt="">
             <?php endwhile; ?>
-        </div>
+        </div> 
     </div>
 </section>
 <?php endif; ?>
@@ -36,8 +36,8 @@ get_header();
             <?php endwhile; ?>
         </div> 
         <div class="logos-slider-wrap">
-            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
-            <div class="logos-slider">
+            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <div class="logos-slider"> 
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                     <?php while (have_rows('slides_reviews', ID_FRONTPAGE)) : the_row(); ?>
@@ -53,7 +53,7 @@ get_header();
                     <?php endwhile; ?>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
 </section>

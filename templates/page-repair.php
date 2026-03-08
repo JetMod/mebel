@@ -16,7 +16,7 @@ get_header();
             <div class="image-left minis-img">
                 <img src="<?php the_field('image_repair_1');?>" alt="">
                 <div class="text-block text-base">
-                    <h2 class="materials-title"><?php the_field('title_repair_1'); ?></h2>
+                    <h2 class="materials-title margin-left-right-0"><?php the_field('title_repair_1'); ?></h2>
                     <?php the_field('text_repair_1'); ?>
                 </div> 
             </div>  
@@ -39,7 +39,7 @@ get_header();
             <div class="image-left minis-img pad-bord">
                 <img src="<?php the_field('image_repair_2');?>" alt="">
                 <div class="text-block text-base">
-                    <h2 class="materials-title"><?php the_field('title_repair_2'); ?></h2>
+                    <h2 class="materials-title margin-left-right-0"><?php the_field('title_repair_2'); ?></h2>
                     <?php the_field('text_repair_2'); ?>
                 </div>
             </div>
@@ -50,7 +50,7 @@ get_header();
             <div class="image-left minis-img">
                 <img src="<?php the_field('image_repair_3');?>" alt="">
                 <div class="text-block text-base">
-                    <h2 class="materials-title"><?php the_field('title_repair_3'); ?></h2>
+                    <h2 class="materials-title margin-left-right-0"><?php the_field('title_repair_3'); ?></h2>
                     <?php the_field('text_repair_3'); ?>
                 </div>
             </div>
@@ -73,7 +73,7 @@ get_header();
             <div class="image-left minis-img">
                 <img src="<?php the_field('image_repair_4');?>" alt="">
                 <div class="text-block text-base">
-                    <h2 class="materials-title"><?php the_field('title_repair_4'); ?></h2>
+                    <h2 class="materials-title margin-left-right-0"><?php the_field('title_repair_4'); ?></h2>
                     <?php the_field('text_repair_4'); ?>
                 </div>
             </div>
@@ -87,7 +87,7 @@ get_header();
     <div class="content">
         <div class="center-descrip">
             <h2 class="materials-title"><?php the_field('title_section_prices_rep');?></h2>
-            <p><?php the_field('subtitle_section_prices_rep');?></p>
+            <p><?php the_field('subtitle_section_prices_rep');?></p> 
         </div>
         <div class="grid-prices mb0">
         <?php 
@@ -144,7 +144,7 @@ get_header();
     </div>
 </div>
 
-<section class="koff-section">
+<section class="koff-section"> 
     <div class="content over-hid">
         <div class="center-descrip">
             <?php the_field('zagolovki_section_reviews', ID_FRONTPAGE); ?>
@@ -153,10 +153,10 @@ get_header();
             <?php while (have_rows('links_top_reviews', ID_FRONTPAGE)) : the_row(); ?>
                 <a href="<?php the_sub_field('link_url'); ?>" target='_blank'><?php the_sub_field('link_label');?></a>
             <?php endwhile; ?>
-        </div>
+        </div> 
         <div class="logos-slider-wrap">
-            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
-            <div class="logos-slider">
+            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <div class="logos-slider"> 
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
                     <?php while (have_rows('slides_reviews', ID_FRONTPAGE)) : the_row(); ?>
@@ -164,7 +164,7 @@ get_header();
                         <?php if (get_sub_field('link_review')) : ?>
                             <a href="<?php the_sub_field('link_review'); ?>">
                                 <img src="<?php the_sub_field('img_review') ?>" alt="">
-                            </a>
+                            </a> 
                         <?php else : ?>
                             <img src="<?php the_sub_field('img_review') ?>" alt="">
                         <?php endif; ?>
@@ -177,7 +177,7 @@ get_header();
     </div>
 </section>
 
-<section class="min-section">
+<section class="min-section"> 
     <div class="content">
         <div class="center-descrip">
             <h2 class="materials-title"><?php the_field('title_section_faq', ID_FRONTPAGE);?></h2>

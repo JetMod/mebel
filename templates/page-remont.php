@@ -44,7 +44,7 @@ get_header();
                     <h2 class="materials-title"><?php the_sub_field('title_rem_type');?></h2>
                     <?php the_sub_field('text_rem_type'); ?>
                 </div>
-            </div>
+            </div> 
             <?php endwhile; ?>
         </div>
     <?php endif; ?>
@@ -156,7 +156,7 @@ get_header();
         </div>
     </div>
 </section>
-<?php endif; ?>
+<?php endif; ?> 
 
 <section class="koff-section">
     <div class="content over-hid">
@@ -169,7 +169,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
+            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -178,7 +178,7 @@ get_header();
                         <?php if (get_sub_field('link_review')) : ?>
                             <a href="<?php the_sub_field('link_review'); ?>">
                                 <img src="<?php the_sub_field('img_review') ?>" alt="">
-                            </a>
+                            </a> 
                         <?php else : ?>
                             <img src="<?php the_sub_field('img_review') ?>" alt="">
                         <?php endif; ?>

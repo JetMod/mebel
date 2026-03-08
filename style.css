@@ -127,11 +127,11 @@ Text Domain: mebel
 }
 
 
-/* materials-title — стили как у h3 (.base-section h3)
+/* materials-title — H2, меньше чем H1
 --------------------------------------------- */
 .materials-title {
 	font-family: "Noto Sans",sans-serif !important;
-	font-size: 48px !important;
+	font-size: 40px !important;
 	font-weight: 500 !important;
 	margin-bottom: 20px !important;
 	text-align: center !important;
@@ -139,19 +139,19 @@ Text Domain: mebel
 	margin-left: auto !important;
 	margin-right: auto !important;
 	line-height: 1 !important;
-} 
+}
 
 @media (max-width: 1200px) {
 	.materials-title {
-		font-size: 36px !important;
+		font-size: 32px !important;
 		line-height: 100% !important;
 	}
 }
 
 @media (max-width: 992px) {
 	.materials-title {
-		font-size: 30px !important;
-		margin-bottom: 20px !important; 
+		font-size: 28px !important;
+		margin-bottom: 20px !important;
 	}
 }
 
@@ -164,6 +164,67 @@ Text Domain: mebel
 
 .about-block .text-about h2 {
     text-align: left !important;
+}
+ 
+/* Подзаголовок секции (H3), меньше чем H2
+--------------------------------------------- */
+.section-subtitle {
+	font-family: "Noto Sans", sans-serif !important;
+	font-size: 28px !important;
+	font-weight: 500 !important;
+	margin-bottom: 16px !important;
+	text-align: center !important;
+	color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+	.section-subtitle {
+		font-size: 24px !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.section-subtitle {
+		font-size: 20px !important;
+		margin-bottom: 12px !important;
+	}
+} 
+
+/* Прижать h2 к левому краю (страница Ремонт мягкой мебели)
+--------------------------------------------- */
+.materials-title.margin-left-right-0 {
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	text-align: left !important;
+	max-width: none !important;
+}
+ 
+/* h2 в контенте секции (Перетяжка диванов, кресел и т.д.) — прижать к левому краю, размер как у .materials-title */
+.text-section .base-text h2 {
+	font-size: 40px !important;
+	font-weight: 500 !important;
+	margin-left: 0 !important;
+	margin-right: 0 !important;
+	text-align: left !important;
+	max-width: none !important;
+}
+
+@media (max-width: 1200px) {
+	.text-section .base-text h2 {
+		font-size: 34px !important;
+	}
+}
+
+@media (max-width: 992px) {
+	.text-section .base-text h2 {
+		font-size: 28px !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.text-section .base-text h2 {
+		font-size: 24px !important;
+	}
 }
 
 
@@ -262,6 +323,21 @@ h1.page-title {
 .text-section a:not(.btn-gold):not(.btn-empty):not(.link-gold):hover,
 .answer-block a:hover,
 .stadi-text a:hover {
-    color: #f09321;
+    color: #b67f35;  
     text-decoration: none;
 } 
+
+
+.margin-left-right-0{ 
+	margin-left: 0px !important;
+	margin-right: 0px !important;
+}
+
+
+.callback-color{
+	color: #fff !important;
+}
+
+.callback-color:hover{
+	color: #fff !important;
+}

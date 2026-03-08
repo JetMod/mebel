@@ -76,9 +76,9 @@ get_header();
                     <?php while (have_rows('links_top_reviews')) : the_row(); ?>
                         <a href="<?php the_sub_field('link_url'); ?>" target='_blank'><?php the_sub_field('link_label');?></a>
                     <?php endwhile; ?>
-                </div>
+                </div> 
                 <div class="logos-slider-wrap">
-                    <h2 class="materials-title"><?php the_field('title_before_reviews'); ?></h2>
+                    <h3 class="section-subtitle"><?php the_field('title_before_reviews'); ?></h3>
                     <div class="logos-slider">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
@@ -103,7 +103,7 @@ get_header();
         <section class="base-section no-border-bottom" id="services">
             <div class="content">
                 <div class="center-wide-text before-mob-after">
-                    <?php the_field('zagolovki_section_services'); ?>
+                    <h2 class="materials-title"><?php the_field('zagolovki_section_services'); ?></h2>
                     <div class="tile-box">
                     <?php while (have_rows('links_services')) : the_row(); ?>
                         <a href="<?php the_sub_field('url_link_service');?>" class="tile-item">

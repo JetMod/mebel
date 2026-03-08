@@ -30,7 +30,7 @@ get_header();
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
             </div>
-        </div>
+        </div> 
     <?php endif; ?>
         <div class="center-btn-banner">
             <a href="<?php the_field('works_link', ID_FRONTPAGE);?>" class="link-gold just-link"><?php the_field('works_link_label', ID_FRONTPAGE);?></a>
@@ -50,10 +50,10 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
+            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
             <div class="logos-slider">
                 <div class="swiper-container">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper"> 
                     <?php while (have_rows('slides_reviews', ID_FRONTPAGE)) : the_row(); ?>
                         <div class="swiper-slide">
                         <?php if (get_sub_field('link_review')) : ?>
@@ -65,7 +65,7 @@ get_header();
                         <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>

@@ -137,11 +137,10 @@ get_header();
         <br>
         <a href="#callback" class="btn-gold open-js">Узнать стоимость своего заказа</a>
     </div>
-</section>
+</section> 
 <?php endif; ?>
 
-<section class="koff-section">
-    <div class="content over-hid">
+<section class="koff-section"> 
         <div class="center-descrip">
             <?php the_field('zagolovki_section_reviews', ID_FRONTPAGE); ?>
         </div>
@@ -151,7 +150,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h2 class="materials-title"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
+            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">

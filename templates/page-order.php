@@ -36,7 +36,7 @@ get_header();
                         <p><?php the_field('description_zakaz');?></p>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
 
