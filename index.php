@@ -6,7 +6,7 @@ get_header();
 	<div class="content">
 		<?php while (have_posts()) : the_post(); ?>
 		<div class="center-descrip">
-            <h3><?php the_title(); ?></h3>
+            <h2 class="page-title"><?php the_title(); ?></h2>
         </div>
 
 		<?php the_content(); ?>

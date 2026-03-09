@@ -467,9 +467,10 @@
 		<?php if (is_front_page()) :?>
 
         <div class="main-screen"> 
+            <h1 class="visually-hidden">Перетяжка мебели в Симферополе</h1>
             <div class="content">
                 <div class="main-screen-text">
-                    <h1><?php the_field('title_header', 'option');?></h1>
+                    <h2 class="main-screen-title"><?php the_field('title_header', 'option');?></h2>
                     <div class="form-wrapp">
                         <?php $form_header = get_field('forma_header','option');?>
                         <?php echo do_shortcode($form_header);?>

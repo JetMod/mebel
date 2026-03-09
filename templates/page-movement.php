@@ -17,7 +17,7 @@ get_header();
             <?php while (have_rows('services_3')) : the_row(); ?>
             <div class="serv-item">
                 <img src="<?php the_sub_field('image_serv');?>" alt="">
-                <h3><?php the_sub_field('name_serv');?></h3>
+                <h2 class="materials-title"><?php the_sub_field('name_serv');?></h2>
                 <a href="<?php the_sub_field('link_serv');?>">Перейти</a>
             </div>
             <?php endwhile; ?> 
@@ -42,11 +42,11 @@ get_header();
                 <img src="<?php echo get_template_directory_uri() . '/assets/img/img-why.png';?>" alt="">
             </div>
             <div class="text-side">
-                <h3><?php the_field('title_why_move');?></h3>
+                <h2 class="materials-title"><?php the_field('title_why_move');?></h2>
                 <div class="grid-four-text">
                     <?php while(have_rows('advants_choose_move')) : the_row();?>
                     <div class="grid-item">
-                        <h5><?php the_sub_field('advant_title');?></h5>
+                        <div class="heading-small"><?php the_sub_field('advant_title');?></div>
                         <p><?php the_sub_field('advant_descript');?></p>
                     </div>
                     <?php endwhile; ?>
@@ -59,7 +59,7 @@ get_header();
         <div class="content">
             <div class="invite-inner">
                 <div class="invite-text">
-                    <h4><?php the_field('title_banner_invite');?></h4>
+                    <div class="heading-tertiary"><?php the_field('title_banner_invite');?></div>
                     <p><?php the_field('text_banner_invite');?></p>
                 </div>
                 <div class="invite-conts">

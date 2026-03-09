@@ -103,11 +103,11 @@ get_header();
         <section class="base-section no-border-bottom" id="services">
             <div class="content">
                 <div class="center-wide-text before-mob-after">
-                    <?php the_field('zagolovki_section_services'); ?>
+                    <?php echo mebel_add_materials_title_to_first_h2( get_field('zagolovki_section_services') ); ?>
                     <div class="tile-box">
                     <?php while (have_rows('links_services')) : the_row(); ?>
                         <a href="<?php the_sub_field('url_link_service');?>" class="tile-item">
-                            <h4><?php the_sub_field('text_link_service');?></h4>
+                            <span class="heading-tertiary"><?php the_sub_field('text_link_service');?></span>
                             <img src="<?php the_sub_field('img_link_service'); ?>" alt="">
                         </a>
                     <?php endwhile; ?>
@@ -121,7 +121,7 @@ get_header();
             <div class="content">
                 <div class="materials-header">
                     <h2 class="materials-title"><?php the_field('title_1_materials');?></h2>
-                    <h5><?php the_field('title_2_materials');?></h5>
+                    <div class="heading-small"><?php the_field('title_2_materials');?></div>
                 </div> 
                 <div class="flex-btns">
                     <?php if (get_field('link_btn_choose_material')) :?><a href="<?php the_field('link_btn_choose_material');?>" class="btn-empty">выберите ткань</a><?php endif; ?>
@@ -135,7 +135,7 @@ get_header();
                             <?php while($materials->have_posts()) : $materials->the_post(); ?>
                             <div class="swiper-slide">
                                 <a href="#mater-<?php the_ID(); ?>" class="material-item">
-                                    <h4><?php the_title();?></h4>
+                                    <span class="heading-tertiary"><?php the_title();?></span>
                                     <?php the_post_thumbnail('full');?>
                                 </a>
                             </div>
@@ -159,10 +159,10 @@ get_header();
                         <?php the_post_thumbnail('full'); ?>
                     </div>
                     <div class="about-mat-txt">
-                        <h4><?php the_title();?></h4>
+                        <div class="heading-tertiary"><?php the_title();?></div>
                         <?php the_content(); ?>
                         <div class="characts">
-                            <h5>Характеристики:</h5>
+                            <div class="heading-small">Характеристики:</div>
                             <ul class="left-block">
                                 <?php while(have_rows('list_characters_left')) : the_row();?>
                                 <li><?php the_sub_field('character_item');?></li>
@@ -244,7 +244,7 @@ get_header();
                 <?php while (have_rows('faq-items_front')) : the_row(); ?>
                     <div class="faq-item">
                         <div class="faq-question">
-                            <h4><?php the_sub_field('question');?></h4>
+                            <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                         </div>
                         <div class="answer-block">
                             <?php the_sub_field('answer');?>

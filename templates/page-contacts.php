@@ -59,7 +59,7 @@ if (get_field('ok_link_header', 'option')) {
                 ?>
                     <div class="address-item">
                         <!-- Видимый контент без микроразметки (чтобы избежать дублирования) -->
-                        <h4> <?php echo $adresses[$i]['town'];?></h4>
+                        <div class="heading-tertiary"><?php echo $adresses[$i]['town'];?></div>
                         <p><?php echo $adresses[$i]['adres'] ?></p>
                         <a href="#map<?php echo $i ?>" class="map-js">Смотреть на карте</a>
                     </div>  
@@ -68,7 +68,7 @@ if (get_field('ok_link_header', 'option')) {
         </div>
 
         <div class="center-socies">
-            <h4><?php the_field('title_center_conts');?></h4>
+            <div class="heading-tertiary"><?php the_field('title_center_conts');?></div>
             <p><?php the_field('text_center_conts');?></p>
             <div class="socies-links goriz">
                 <a href="tel:<?php the_field('phone_link_header', 'option'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/phone-icon.png" alt=""></a>
@@ -137,7 +137,7 @@ if (get_field('ok_link_header', 'option')) {
             <div class="map-block">
                 <div class="content">
                     <div class="map-addr">
-                        <h4>Контакты</h4>
+                        <div class="heading-tertiary">Контакты</div>
                         <div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
                             <p>
                                 г. <span itemprop="addressLocality"><?php echo $adresses[$i]['town']; ?></span>, 

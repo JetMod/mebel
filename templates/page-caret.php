@@ -35,7 +35,7 @@ get_header();
                             <img src="<?php the_sub_field('imag_gal'); ?>" alt="">
                         <?php endif; ?>
                         <?php if (get_sub_field('title_gal')) : ?>
-                            <h4><?php the_sub_field('title_gal'); ?></h4>
+                            <div class="heading-tertiary"><?php the_sub_field('title_gal'); ?></div>
                         <?php endif; ?>
                         <?php if (get_sub_field('text_gal')) : ?>
                             <p><?php the_sub_field('text_gal'); ?></p>
@@ -103,7 +103,7 @@ get_header();
             <?php endif; ?>
             <?php if (get_field('text_before_btn_file_caret')) : ?>
             <div class="center-banner">
-                <h4><?php the_field('text_before_btn_file_caret');?></h4>
+                <div class="heading-tertiary"><?php the_field('text_before_btn_file_caret');?></div>
                 <a href="#callback-file" class="btn-empty open-js">Загрузить фото</a>
             </div>
             <?php endif; ?>
@@ -112,7 +112,7 @@ get_header();
 </section>
 <div class="pop-up pop-min pop-styles" id="callback-file">
     <div class="contact-form">
-        <h3><?php the_field('title_form_file', 'option'); ?></h3>
+        <h2 class="heading-form"><?php the_field('title_form_file', 'option'); ?></h2>
         <?php echo do_shortcode(get_field('form_file','option')); ?>
     </div>
 </div>
@@ -121,7 +121,7 @@ get_header();
 <section class="min-section">
     <div class="content">
         <div class="center-descrip">
-            <h3><?php the_field('title_our_works_caret');?></h3>
+            <h2 class="materials-title"><?php the_field('title_our_works_caret');?></h2>
         </div>
         <div class="img-items-gallery pad-bord">
         <?php while (have_rows('work_item_caret')) : the_row(); ?>
@@ -150,7 +150,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -183,7 +183,7 @@ get_header();
         <?php while (have_rows('faq-items_all')) : the_row(); ?>
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php the_sub_field('question');?></h4>
+                    <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                 </div>
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>
@@ -194,7 +194,7 @@ get_header();
         <?php while (have_rows('faq-items_front', ID_FRONTPAGE)) : the_row(); ?>
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php the_sub_field('question');?></h4>
+                    <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                 </div>
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>
@@ -213,7 +213,7 @@ get_header();
     <div class="content">
         <div class="materials-header">
             <h2 class="materials-title"><?php the_field('title_1_materials', ID_FRONTPAGE);?></h2>
-            <h5><?php the_field('title_2_materials', ID_FRONTPAGE);?></h5>
+            <div class="heading-small"><?php the_field('title_2_materials', ID_FRONTPAGE);?></div>
         </div>
         <div class="flex-btns">  
             <?php if (get_field('link_btn_choose_material', ID_FRONTPAGE)) :?><a href="<?php the_field('link_btn_choose_material', ID_FRONTPAGE);?>" class="btn-empty">выберите ткань</a><?php endif; ?>
@@ -227,7 +227,7 @@ get_header();
                     <?php while($materials->have_posts()) : $materials->the_post(); ?>
                     <div class="swiper-slide">
                         <a href="#mater-<?php the_ID(); ?>" class="material-item">
-                            <h4><?php the_title();?></h4>
+                            <span class="heading-tertiary"><?php the_title();?></span>
                             <?php the_post_thumbnail('full');?>
                         </a>
                     </div>
@@ -251,10 +251,10 @@ get_header();
                 <?php the_post_thumbnail('full'); ?>
             </div>
             <div class="about-mat-txt">
-                <h4><?php the_title();?></h4>
+                <div class="heading-tertiary"><?php the_title();?></div>
                 <?php the_content(); ?>
                 <div class="characts">
-                    <h5>Характеристики:</h5>
+                    <div class="heading-small">Характеристики:</div>
                     <ul class="left-block">
                         <?php while(have_rows('list_characters_left')) : the_row();?>
                         <li><?php the_sub_field('character_item');?></li>

@@ -36,7 +36,7 @@ get_header();
         <?php while (have_rows('faq-items_all')) : the_row(); ?>
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php the_sub_field('question');?></h4>
+                    <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                 </div>
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>
@@ -47,7 +47,7 @@ get_header();
         <?php while (have_rows('faq-items_front', ID_FRONTPAGE)) : the_row(); ?>
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php the_sub_field('question');?></h4>
+                    <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                 </div>
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>

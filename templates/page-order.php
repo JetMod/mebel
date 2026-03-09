@@ -17,7 +17,7 @@ get_header();
             <?php while (have_rows('services_3')) : the_row(); ?>
             <div class="serv-item">
                 <img src="<?php the_sub_field('image_serv');?>" alt="">
-                <h3><?php the_sub_field('name_serv');?></h3>
+                <h2 class="materials-title"><?php the_sub_field('name_serv');?></h2>
                 <a href="<?php the_sub_field('link_serv');?>">Перейти</a>
             </div>
             <?php endwhile; ?> 
@@ -72,7 +72,7 @@ get_header();
         <div class="content">
             <div class="invite-inner">
                 <div class="invite-text">
-                    <h4><?php the_field('title_banner_invite');?></h4>
+                    <div class="heading-tertiary"><?php the_field('title_banner_invite');?></div>
                     <p><?php the_field('text_banner_invite');?></p>
                 </div>
                 <div class="invite-conts">

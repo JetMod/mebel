@@ -18,7 +18,7 @@ get_header();
             <?php if ($i == 0) :?>
             <div class="faq-item active">
                 <div class="faq-question">
-                    <h4><?php echo $faq[$i]['question'];?></h4>
+                    <span class="heading-tertiary"><?php echo $faq[$i]['question'];?></span>
                 </div>
                 <div class="answer-block" style="display:block;">
                     <?php echo $faq[$i]['answer'];?>
@@ -27,7 +27,7 @@ get_header();
             <?php else: ?> 
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php echo $faq[$i]['question'];?></h4>
+                    <span class="heading-tertiary"><?php echo $faq[$i]['question'];?></span>
                 </div>
                 <div class="answer-block">
                     <?php echo $faq[$i]['answer'];?>
@@ -37,7 +37,7 @@ get_header();
         <?php $i++;endwhile; ?>
         </div>
         <div class="center-banner">
-            <h4><?php the_field('title_banner_faq');?></h4>
+            <div class="heading-tertiary"><?php the_field('title_banner_faq');?></div>
             <?php the_field('text_banner_faq');?>
             <a href="#callback" class="btn-gold open-js">Задать вопрос</a>
         </div>

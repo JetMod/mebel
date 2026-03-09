@@ -50,7 +50,7 @@ get_header();
             <?php endwhile; ?>
         </div>
         <div class="logos-slider-wrap">
-            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider">
                 <div class="swiper-container">
                     <div class="swiper-wrapper"> 
@@ -83,7 +83,7 @@ get_header();
         <?php while (have_rows('faq-items_all')) : the_row(); ?>
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php the_sub_field('question');?></h4>
+                    <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                 </div>
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>
@@ -94,7 +94,7 @@ get_header();
         <?php while (have_rows('faq-items_front', ID_FRONTPAGE)) : the_row(); ?>
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php the_sub_field('question');?></h4>
+                    <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                 </div>
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>
@@ -122,7 +122,7 @@ get_header();
 
 <section class="crem-section pb60" id="works">
     <div class="content">
-        <h3><?php the_field('title_section_before-after_rest');?></h3>
+        <h2 class="materials-title"><?php the_field('title_section_before-after_rest');?></h2>
     <?php if (have_rows('slides_before-after_rest')) :?>
         <div class="before-after-slider">
             <div class="swiper-container">

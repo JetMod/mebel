@@ -123,8 +123,8 @@ function mebel_widgets_init() {
 			'description'   => 'Добавьте меню в футер',
 			'before_widget' => '<div id="%1$s" class="main-footer-menu %2$s">',
 			'after_widget'  => '</div>',
-			'before_title'  => '<h4>',
-			'after_title'   => '</h4>',
+			'before_title'  => '<div class="heading-tertiary">',
+			'after_title'   => '</div>',
 		)
 	);
 }
@@ -145,7 +145,28 @@ function mebel_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'mebel_scripts' ); 
 
-add_filter('wpcf7_autop_or_not', '__return_false'); 
+add_filter('wpcf7_autop_or_not', '__return_false');
+
+/**
+ * Добавляет класс materials-title к первому h2 в контенте (для ACF WYSIWYG полей)
+ */
+function mebel_add_materials_title_to_first_h2( $content ) {
+	if ( empty( $content ) || ! is_string( $content ) ) {
+		return $content;
+	}
+	$content = preg_replace_callback(
+		'/<h2(\s[^>]*)?>/',
+		function ( $m ) {
+			if ( strpos( $m[0], 'class="' ) !== false ) {
+				return preg_replace( '/class="([^"]*)"/', 'class="$1 materials-title"', $m[0], 1 );
+			}
+			return '<h2 class="materials-title">';
+		},
+		$content,
+		1
+	);
+	return $content;
+} 
 
 add_filter( 'upload_mimes', 'mebel_svg_upload_allow' );
 

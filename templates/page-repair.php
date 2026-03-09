@@ -130,7 +130,7 @@ get_header();
             <?php endif; ?>
             <?php if (get_field('text_before_btn_file_rep')) : ?>
             <div class="center-banner">
-                <h4><?php the_field('text_before_btn_file_rep');?></h4>
+                <div class="heading-tertiary"><?php the_field('text_before_btn_file_rep');?></div>
                 <a href="#callback-file" class="btn-empty open-js">Загрузить фото</a>
             </div>
             <?php endif; ?>
@@ -139,7 +139,7 @@ get_header();
 </section>
 <div class="pop-up pop-min pop-styles" id="callback-file">
     <div class="contact-form">
-        <h3><?php the_field('title_form_file', 'option'); ?></h3>
+        <h2 class="heading-form"><?php the_field('title_form_file', 'option'); ?></h2>
         <?php echo do_shortcode(get_field('form_file','option')); ?>
     </div>
 </div>
@@ -155,7 +155,7 @@ get_header();
             <?php endwhile; ?>
         </div> 
         <div class="logos-slider-wrap">
-            <h3 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h3>
+            <h2 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
             <div class="logos-slider"> 
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
@@ -188,7 +188,7 @@ get_header();
         <?php while (have_rows('faq-items_all')) : the_row(); ?>
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php the_sub_field('question');?></h4>
+                    <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                 </div>
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>
@@ -199,7 +199,7 @@ get_header();
         <?php while (have_rows('faq-items_front', ID_FRONTPAGE)) : the_row(); ?>
             <div class="faq-item">
                 <div class="faq-question">
-                    <h4><?php the_sub_field('question');?></h4>
+                    <span class="heading-tertiary"><?php the_sub_field('question');?></span>
                 </div>
                 <div class="answer-block">
                     <?php the_sub_field('answer');?>

@@ -14,7 +14,7 @@
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/grey-location.svg" alt="">
                             </div>
                             <div class="info-text">
-                                <h5>Адрес</h5>
+                                <div class="heading-small">Адрес</div>
                             </div>
                         </div>
                         <div class="info-line">
@@ -30,7 +30,7 @@
                                 <img src="<?php echo get_template_directory_uri(); ?>/assets/img/grey-time.svg" alt="">
                             </div>
                             <div class="info-text">
-                                <h5>График работы:</h5>
+                                <div class="heading-small">График работы:</div>
                             </div>
                         </div>
                         <div class="info-line">
@@ -82,13 +82,13 @@
 
     <div class="pop-up pop-min pop-styles" id="callback">
         <div class="contact-form">
-            <h3><?php the_field('title_main_form','option'); ?></h3>
+            <h2 class="heading-form"><?php the_field('title_main_form','option'); ?></h2>
             <?php echo do_shortcode(get_field('main_form','option')); ?>
         </div>
     </div>
 
     <div class="pop-up pop-min center-txt" id="pop-success">
-        <h3>Заявка успешно отправлена</h3>
+        <h2 class="heading-form">Заявка успешно отправлена</h2>
         <p>Наш менеджер свяжется с вами в ближайшее время.</p>
     </div>
 
