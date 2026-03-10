@@ -22,6 +22,22 @@ function mebel_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	// Страницы по slug или заголовку
+	if ( is_singular( 'page' ) ) {
+		$post = get_queried_object();
+		if ( $post ) {
+			if ( $post->post_name === 'pereetyazhka-divanov' || $post->post_title === 'Перетяжка диванов' ) {
+				$classes[] = 'page-pereetyazhka-divanov';
+			}
+			if ( $post->post_name === 'pereetyazhka-kresel' || $post->post_title === 'Перетяжка кресел' ) {
+				$classes[] = 'page-pereetyazhka-kresel';
+			}
+			if ( $post->post_name === 'pereetyazhka-kozhanoy-mebeli' || $post->post_title === 'Перетяжка кожаной мебели' ) {
+				$classes[] = 'page-pereetyazhka-kozhanoy-mebeli';
+			}
+		}
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'mebel_body_classes' );

@@ -3,7 +3,7 @@
 get_header();
 ?>
 
-<section class="text-section">
+<section class="text-section page-promo-section">
 	<div class="content base-text">
 		<?php while (have_posts()) : the_post(); ?>
 		<div>

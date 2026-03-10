@@ -12,12 +12,12 @@ get_header();
 		    <?php endwhile; ?>
         </div> 
         <?php if (get_field('label_form_file')) :?>
-        <a href="#callback-file" class="btn-gold open-js btn-center"><?php the_field('label_form_file');?></a>
+        <a href="#callback-file" class="btn-gold open-js btn-center btn-callback-photo"><?php the_field('label_form_file');?></a>
         <?php endif; ?>
 </section>
 <div class="pop-up pop-min pop-styles" id="callback-file">
     <div class="contact-form">
-        <h2 class="heading-form"><?php the_field('title_form_file', 'option'); ?></h2>
+        <?php if (get_field('title_form_file', 'option')) : ?><div class="heading-form"><?php the_field('title_form_file', 'option'); ?></div><?php endif; ?>
         <?php echo do_shortcode(get_field('form_file','option')); ?>
     </div>
 </div> 
@@ -151,16 +151,16 @@ get_header();
                     <h2 class="materials-title">Что о нас пишут клиенты</h2>
                 </div> 
                 <div class="flex-links">
-                    <?php while (have_rows('links_top_reviews')) : the_row(); ?>
+                    <?php while (have_rows('links_top_reviews', ID_FRONTPAGE)) : the_row(); ?>
                         <a href="<?php the_sub_field('link_url'); ?>" target='_blank'><?php the_sub_field('link_label');?></a>
                     <?php endwhile; ?>
                 </div> 
                 <div class="logos-slider-wrap">
-                    <h2 class="section-subtitle"><?php the_field('title_before_reviews'); ?></h2>
+                    <h2 class="section-subtitle"><?php the_field('title_before_reviews', ID_FRONTPAGE); ?></h2>
                     <div class="logos-slider">
                         <div class="swiper-container">
                             <div class="swiper-wrapper">
-                            <?php while (have_rows('slides_reviews')) : the_row(); ?>
+                            <?php while (have_rows('slides_reviews', ID_FRONTPAGE)) : the_row(); ?>
                                 <div class="swiper-slide">
                                 <?php if (get_sub_field('link_review')) : ?>
                                     <a href="<?php the_sub_field('link_review'); ?>">

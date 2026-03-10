@@ -3,7 +3,7 @@
 get_header();
 ?>
 
-<section class="base-section">
+<section class="base-section page-prices-section">
     <div class="content">
         <div class="center-descrip">
             <h1 class="page-title"><?php the_field('title_page_prices');?></h1>

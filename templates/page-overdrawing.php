@@ -13,7 +13,7 @@ get_header();
   
         <div> 
         <?php if (get_field('title_advants_over')): ?>
-            <h2 class="materials-title"><?php the_field('title_advants_over');?></h2>
+            <h2 class="advants-over-title"><?php the_field('title_advants_over');?></h2>
         <?php endif; ?>
         <?php if (have_rows('advant_over_items')) : ?>
             <div class="icon-list">
@@ -29,14 +29,14 @@ get_header();
  
         <div>
             <?php if (get_field('text_above_button_file')) : ?>
-                <div class="min-title">
+                <div class="min-title over-quote-block">
                     <div class="heading-tertiary"><?php the_field('text_above_button_file');?></div>
-                    <a href="#callback-file" class="btn-gold open-js callback-color">Рассчитать стоимость по фото</a>
+                    <a href="#callback-file" class="btn-gold open-js btn-callback-photo">Рассчитать стоимость по фото</a>
                 </div>
             <?php endif; ?>
                 <div class="pop-up pop-min pop-styles" id="callback-file">
                     <div class="contact-form">
-                        <h2 class="heading-form"><?php the_field('title_form_file', 'option'); ?></h2>
+                        <?php if (get_field('title_form_file', 'option')) : ?><div class="heading-form"><?php the_field('title_form_file', 'option'); ?></div><?php endif; ?>
                         <?php echo do_shortcode(get_field('form_file','option')); ?>
                     </div> 
                 </div>

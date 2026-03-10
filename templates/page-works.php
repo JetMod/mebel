@@ -25,7 +25,7 @@ get_header();
 </section>
 <?php endif; ?>
 
-<section class="koff-section">
+<section class="koff-section page-works-section">
     <div class="content over-hid"> 
         <div class="center-descrip">
             <?php the_field('zagolovki_section_reviews', ID_FRONTPAGE); ?>

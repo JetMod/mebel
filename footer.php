@@ -82,13 +82,13 @@
 
     <div class="pop-up pop-min pop-styles" id="callback">
         <div class="contact-form">
-            <h2 class="heading-form"><?php the_field('title_main_form','option'); ?></h2>
+            <div class="heading-form"><?php the_field('title_main_form','option'); ?></div>
             <?php echo do_shortcode(get_field('main_form','option')); ?>
         </div>
     </div>
 
     <div class="pop-up pop-min center-txt" id="pop-success">
-        <h2 class="heading-form">Заявка успешно отправлена</h2>
+        <div class="heading-form">Заявка успешно отправлена</div>
         <p>Наш менеджер свяжется с вами в ближайшее время.</p>
     </div>
 

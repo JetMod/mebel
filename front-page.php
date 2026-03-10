@@ -74,6 +74,7 @@ get_header();
             <div class="content over-hid">
                 <div class="center-descrip">
                     <h2 class="materials-title">Что о нас пишут клиенты</h2>
+                    <p class="reviews-subtitle">Узнайте правдивые отзывы</p>
                 </div> 
                 <div class="flex-links">
                     <?php while (have_rows('links_top_reviews')) : the_row(); ?>

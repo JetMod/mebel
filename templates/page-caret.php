@@ -112,7 +112,7 @@ get_header();
 </section>
 <div class="pop-up pop-min pop-styles" id="callback-file">
     <div class="contact-form">
-        <h2 class="heading-form"><?php the_field('title_form_file', 'option'); ?></h2>
+        <?php if (get_field('title_form_file', 'option')) : ?><div class="heading-form"><?php the_field('title_form_file', 'option'); ?></div><?php endif; ?>
         <?php echo do_shortcode(get_field('form_file','option')); ?>
     </div>
 </div>
@@ -140,7 +140,8 @@ get_header();
 </section> 
 <?php endif; ?>
 
-<section class="koff-section"> 
+<section class="koff-section">
+    <div class="content over-hid">
         <div class="center-descrip">
             <?php the_field('zagolovki_section_reviews', ID_FRONTPAGE); ?>
         </div>

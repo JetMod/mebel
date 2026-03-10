@@ -136,9 +136,9 @@ get_header();
     </div>
 </section>
 <div class="pop-up pop-min pop-styles" id="callback-file">
-    <div class="contact-form">
-        <h2 class="heading-form"><?php the_field('title_form_file', 'option'); ?></h2>
-        <?php echo do_shortcode(get_field('form_file','option')); ?>
+        <div class="contact-form">
+            <?php if (get_field('title_form_file', 'option')) : ?><div class="heading-form"><?php the_field('title_form_file', 'option'); ?></div><?php endif; ?>
+            <?php echo do_shortcode(get_field('form_file','option')); ?>
     </div>
 </div>
 

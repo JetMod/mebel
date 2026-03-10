@@ -187,7 +187,7 @@ Text Domain: mebel
 }
 
 .about-block .text-about h2 {
-    text-align: left !important;
+    text-align: center !important;
 }
  
 /* Подзаголовок секции (H3), меньше чем H2
@@ -481,8 +481,7 @@ Text Domain: mebel
 	color: #fff;
 	position: relative;
 	z-index: 3;
-	text-align: left;
-	margin-left: 0;
+	text-align: center;
 	margin-bottom: 0;
 }
 
@@ -565,23 +564,61 @@ Text Domain: mebel
 	}
 }
 
-/* Прижать h2 к левому краю (страница Ремонт мягкой мебели)
---------------------------------------------- */
-.materials-title.margin-left-right-0 {
-	margin-left: 0 !important;
-	margin-right: 0 !important;
+/* Страница «Перетяжка кожаной мебели» — заголовок «Виды предлагаемых услуг» слева */
+.page-pereetyazhka-kozhanoy-mebeli .text-section .base-text h2 {
 	text-align: left !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+}
+
+/* Заголовок «Преимущества нашего сервиса» — страница Перетяжка мягкой мебели (слева, свои стили) */
+.advants-over-title {
+	font-family: "Noto Sans", sans-serif;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 1;
+	margin-bottom: 20px;
+	margin-top: 0;
+	text-align: left !important;
+	max-width: none;
+	color: #333;
+}
+
+@media (max-width: 1200px) {
+	.advants-over-title {
+		font-size: 32px;
+		line-height: 100%;
+	}
+}
+
+@media (max-width: 992px) {
+	.advants-over-title {
+		font-size: 28px;
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.advants-over-title {
+		font-size: 24px;
+		margin-bottom: 20px;
+	}
+}
+
+/* materials-title без ограничения max-width */
+.materials-title.margin-left-right-0 {
 	max-width: none !important;
+	text-align: center !important;
 }
  
-/* h2 в контенте секции (Перетяжка диванов, кресел и т.д.) — прижать к левому краю, размер как у .materials-title */
+/* h2 в контенте секции (Перетяжка диванов, кресел и т.д.) — по центру */
 .text-section .base-text h2 {
 	font-size: 40px !important;
 	font-weight: 500 !important;
-	margin-left: 0 !important;
-	margin-right: 0 !important;
-	text-align: left !important;
+	text-align: center !important;
 	max-width: none !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
 }
 
 @media (max-width: 1200px) {
@@ -641,7 +678,11 @@ h1.page-title {
 		margin-bottom: 20px;
 	}
 }
- 
+
+/* Страницы «Цены на услуги» — отступ заголовка */
+.page-prices-section .center-descrip .page-title {
+	margin-bottom: 20px;
+}
 
 
 
@@ -718,5 +759,132 @@ h1.page-title {
 }
 
 .callback-color:hover{
+	color: #fff !important;
+}
+
+/* Блок «Что о нас пишут клиенты» — отступ у заголовка */
+.koff-section .center-descrip h2 {
+	margin-bottom: 20px;
+}
+
+/* Страница «Перетяжка мягкой мебели» — текст над кнопкой */
+.over-quote-block .heading-tertiary {
+	font-weight: 400;
+	font-size: 24px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	color: #333;
+	font-family: "Noto Sans", sans-serif;
+	text-align: center;
+}
+
+@media (max-width: 1566px) {
+	.over-quote-block .heading-tertiary {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 560px) {
+	.over-quote-block .heading-tertiary {
+		font-size: 18px;
+		margin-bottom: 25px;
+		line-height: 110%;
+	}
+}
+
+/* center-banner — «Узнайте стоимость работ уже сейчас!» и аналоги */
+.center-banner .heading-tertiary {
+	font-family: Montserrat, sans-serif;
+	font-size: 24px;
+	font-weight: 600;
+	margin-top: 30px;
+	margin-bottom: 15px;
+	color: #333;
+}
+
+@media (max-width: 1400px) {
+	.center-banner .heading-tertiary {
+		font-size: 20px;
+		font-weight: 600;
+		color: #000;
+	}
+}
+
+@media (max-width: 840px) {
+	.center-banner .heading-tertiary {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+}
+
+@media (max-width: 400px) {
+	.center-banner .heading-tertiary {
+		font-size: 17px;
+		margin-bottom: 10px;
+	}
+}
+
+/* Подзаголовок в блоке отзывов на главной */
+.koff-section .reviews-subtitle {
+	font-size: 24px;
+    margin-bottom: 10px;
+    line-height: 120%;
+    font-weight: 300;
+}
+
+@media (max-width: 560px) {
+    .koff-section .reviews-subtitle  {
+        font-size: 18px;
+        margin-top: -5px;
+    }
+}
+
+/* Кнопки «Выберите ткань», «Скачать каталог», «Загрузить фото» — чёрный текст */
+.btn-empty,
+.btn-empty.btn-download {
+	color: #000 !important;
+}
+.btn-empty:hover,
+.btn-empty.btn-download:hover {
+	color: #000 !important;
+} 
+.btn-empty svg,
+.btn-empty.btn-download svg {
+	fill: #000 !important;
+}
+
+/* Кнопка «Рассчитать стоимость по фото» — везде белый текст, без подчёркивания */
+.btn-callback-photo {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+.btn-callback-photo:hover {
+	color: #fff !important;
+	text-decoration: none !important;
+}
+
+/* Страница «Перетяжка диванов» — убрать подчёркивание кнопок, белый текст */
+.page-pereetyazhka-divanov .btn-gold,
+.page-pereetyazhka-divanov .btn-empty {
+	text-decoration: none;
+	color: #fff;
+}
+.page-pereetyazhka-divanov .btn-gold:hover,
+.page-pereetyazhka-divanov .btn-empty:hover {
+	text-decoration: none;
+	color: #fff;
+}
+
+/* Страница акции — без подчёркивания ссылок, белый текст в кнопках */
+.page-promo-section .base-text a {
+	text-decoration: none;
+}
+.page-promo-section .base-text a:hover {
+	text-decoration: none;
+}
+.page-promo-section .btn-gold {
+	color: #fff !important;
+}
+.page-promo-section .btn-gold:hover {
 	color: #fff !important;
 }
